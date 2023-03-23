@@ -260,16 +260,26 @@
 
 </main>
 <script>
-    navigator.geolocation.watchPosition(calc)
+    options = {
+        enableHighAccuracy: true,
+        timeout: 500,
+        maximumAge: 0,
+    };
+
+    navigator.geolocation.watchPosition(calc, error, options)
     function calc(position) {
         console.log(position);
 
         let speed = 0;
 
         if (position.coords.speed > 0) {
-            speed = position.coords.speed * 2.23694;
+            speed = Math.round(position.coords.speed * 2.23694);
         }
         document.getElementById("speed").innerHTML = speed;
+    }
+
+    function error(err) {
+        console.error(`ERROR(${err.code}): ${err.message}`);
     }
 </script>
 </body>
