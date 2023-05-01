@@ -1,286 +1,36 @@
 <html>
-<style>
-
-    *,
-    *::before,
-    *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    h1, h2 {
-        font: inherit;
-    }
-
-    body {
-        font:16px/1.2 'Poppins', sans-serif;
-        background: linear-gradient(45deg, hsl(0deg 0% 0% / 70%), rgb(0 0 0 / 67%));
-    }
-
-    .gallery {
-        --anim-time--hi: 266ms;
-        --anim-time--med: 400ms;
-        --anim-time--lo: 600ms;
-
-        display: flex;
-        place-content: center;
-        max-width: clamp(0rem, 95%, 80rem);
-        width: max(22.5rem, 100%);
-        min-height: 100vh;
-        margin-inline: auto;
-        padding: clamp(0px, (30rem  - 100vw) * 9999, 1rem);
-
-    }
-
-    .gallery__content--flow {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .gallery__content--flow > *  {
-        flex-basis: calc((30rem - 100%) * 999);
-    }
-
-    figure {
-        display: flex;
-        min-width: 14rem;
-        max-height: 16rem;
-        position: relative;
-        border-radius: .35rem;
-        box-shadow:
-                rgb(40, 40, 40, 0.1) 0px 2px 3px,
-                rgb(20, 20, 20, 0.2) 0px 5px 8px,
-                rgb(0, 0, 0, 0.25) 0px 10px 12px;
-        overflow: hidden;
-        transition: transform var(--anim-time--med) ease;
-    }
-
-    figure::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-                to top,
-                hsla(0, 0%, 0%, 0.8) 0%,
-                hsla(0, 0%, 0%, 0.7) 12%,
-                hsla(0, 0%, 0%, 0.2) 41.6%,
-                hsla(0, 0%, 0%, 0.125) 50%,
-                hsla(0, 0%, 0%, 0.01) 59.9%,
-                hsla(0, 0%, 0%, 0) 100%
-        );
-        opacity: 0;
-        transition-property: opacity, transform;
-        transition-duration: var(--anim-time--med), var(--anim-time--med);
-        transition-timing-function: ease, ease;
-        z-index: 4;
-    }
-
-    .header__caption {
-        z-index: 10;
-        position: absolute;
-        display: inline-flex;
-        flex-direction: column;
-        align-self: flex-end;
-        width: 100%;
-        gap: 0.5rem;
-        padding: 1rem;
-        justify-content: center;
-        text-align: center;
-        transform: translateY(100%);
-        transition: transform var(--anim-time--hi) linear,
-        opacity var(--anim-time--hi) linear;
-    }
-
-    figure:hover::before {
-        opacity: 0.8;
-    }
-
-    figure:hover .header__caption {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    figure:hover img{
-        transform: scale(1);
-    }
-    .title {
-        color: #fff;
-
-    }
-
-    .title--primary {
-        font-size: 1.25rem;
-        font-weight: bold;
-    }
-
-    .title--secondary {
-        text-transform:uppercase;
-        font-weight: bold;
-    }
-
-    img {
-        display: block;
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-        height: 100%;
-        transform: scale(1.15);
-        aspect-ratio: 16 / 13;
-        transition: 400ms ease-in-out;
-    }
-
-    #speedContainer {
-        font-size: 75px;
-        color: white;
-        position: fixed;
-        margin: auto;
-        display: flex;
-        width: 50px;
-        height: 50px;
-        padding: 10px;
-    }
-
-    #mph {
-        font-size: 15px;
-        margin-top: 52px;
-    }
-
-</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
 <body>
-<div id="speedContainer"><h1 id="speed">0</h1><span id="mph">mph</span></div>
-<main class="gallery gallery__content--flow">
-    <a href="https://youtube.com/redirect?q=https://www.xbox.com/en-us/play">
-        <figure>
-            <img src="https://assets-www.xbox.com/xbox-web/static/media/CloudGaming_LetterBox.scale-200.ef909bf4.png">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Xbox Cloud Gaming</h1>
-            </figcaption>
-        </figure>
-    </a>
 
-    <a href="https://youtube.com/redirect?q=https://app.plex.tv/desktop/#!/">
-        <figure>
-            <img src="https://play-lh.googleusercontent.com/slZYN_wnlAZ4BmyTZZakwfwAGm8JE5btL7u7AifhqCtUuxhtVVxQ1mcgpGOYC7MsAaU">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Plex</h1>
-            </figcaption>
-        </figure>
-    </a>
 
-    <a href="https://youtube.com/redirect?q=https://netflix.com">
-        <figure>
-            <img src="https://yt3.googleusercontent.com/ytc/AL5GRJVNWToqHgCO1ez9xLj3HeIEsDlr1nnqH3n9P51weg=s900-c-k-c0x00ffffff-no-rj">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Netflix</h1>
-            </figcaption>
-        </figure>
-    </a>
+<div class="tabsContent">
+    <div id="stream" class="tabcontent">
+        <main class="gallery gallery__content--flow" id="streamHTML">
+        </main>
+    </div>
 
-    <a href="https://youtube.com">
-        <figure>
-            <img src="https://www.youtube.com/img/desktop/yt_1200.png">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Youtube</h1>
-            </figcaption>
-        </figure>
-    </a>
+    <div id="game" class="tabcontent">
+        <main class="gallery gallery__content--flow" id="gameHTML">
+        </main>
+    </div>
 
-    <a href="https://youtube.com/redirect?q=https://www.bbc.co.uk/iplayer">
-        <figure>
-            <img src="https://pbs.twimg.com/profile_images/1450745962016686085/PFHb1vtn_400x400.jpg">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">BBC Iplayer</h1>
-            </figcaption>
-        </figure>
-    </a>
+    <div id="browse" class="tabcontent">
+        <main class="gallery gallery__content--flow" id="browseHTML">
+        </main>
+    </div>
+</div>
 
-    <a href="https://youtube.com/redirect?q=https://www.disneyplus.com/en-gb">
-        <figure>
-            <img src="https://yt3.googleusercontent.com/dLcy6GV425b8lHf1uLwsySvxopw8IhxbR-92U86hg8-hE77NIDq_3XTG2vQ6YQj7-uo-UW4N=s900-c-k-c0x00ffffff-no-rj">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Disney Plus</h1>
-            </figcaption>
-        </figure>
-    </a>
+<div class="tab">
+    <button class="tablinks active" id="tabStream" onclick="openTab(event, 'stream')">Stream</button>
+    <button class="tablinks" id="tabGame" onclick="openTab(event, 'game')">Game</button>
+    <button class="tablinks" id="tabBrowse" onclick="openTab(event, 'browse')">Browse</button>
+</div>
 
-    <a href="https://youtube.com/redirect?q=https://play.geforcenow.com/mall/#/layout/games">
-        <figure>
-            <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2022/12/65/63a0aff2ec20c.png">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">GForce Now</h1>
-            </figcaption>
-        </figure>
-    </a>
-
-    <a href="https://youtube.com/redirect?q=https://soundcloud.com/">
-        <figure>
-            <img src="https://play-lh.googleusercontent.com/lvYCdrPNFU0Ar_lXln3JShoE-NaYF_V-DNlp4eLRZhUVkj00wAseSIm-60OoCKznpw">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Sound Cloud</h1>
-            </figcaption>
-        </figure>
-    </a>
-
-    <a href="https://youtube.com/redirect?q=https://www.facebook.com/">
-        <figure>
-            <img src="https://cdn2.downdetector.com/static/uploads/logo/FB-f-Logo__blue_512.png">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Facebook</h1>
-            </figcaption>
-        </figure>
-    </a>
-
-    <a href="https://youtube.com/redirect?q=https://www.messenger.com/">
-        <figure>
-            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/yvbOx5two0W.png">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Messenger</h1>
-            </figcaption>
-        </figure>
-    </a>
-
-    <a href="https://youtube.com/redirect?q=https://teslawaze.azurewebsites.net/">
-        <figure>
-            <img src="https://pbs.twimg.com/profile_images/1611472516920520705/gWLeDDCJ_400x400.jpg">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">Waze</h1>
-            </figcaption>
-        </figure>
-    </a>
-
-    <a href="https://youtube.com/redirect?q=https://softdroid.net/speedometer/run/">
-        <figure>
-            <img src="https://cdn.dribbble.com/users/2438/screenshots/824981/speedmeter_still.gif?compress=1&resize=400x300">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">SpeedMeter</h1>
-            </figcaption>
-        </figure>
-    </a>
-
-</main>
-<script>
-    options = {
-        enableHighAccuracy: true,
-        timeout: 500,
-        maximumAge: 0,
-    };
-
-    navigator.geolocation.watchPosition(calc, error, options)
-    function calc(position) {
-        console.log(position);
-
-        let speed = 0;
-
-        if (position.coords.speed > 0) {
-            speed = Math.round(position.coords.speed * 2.23694);
-        }
-        document.getElementById("speed").innerHTML = speed;
-    }
-
-    function error(err) {
-        console.error(`ERROR(${err.code}): ${err.message}`);
-    }
-</script>
-</body>
-</html>
+<script src="apps.js"></script>
+<script src="script.js"></script>
+<script src="https://form.jotform.com/static/feedback2.js"></script> <script> new JotformFeedback({ type: false, width: 700, height: 500, fontColor: "#000000", background: "#fbf9f9", isCardForm: false, formId: "231202234418342" , buttonText: "Feedback", buttonSide: "right", buttonAlign: "center", base: "https://form.jotform.com/", }); </script> <script type="text/javascript"> var ifr = document.getElementById("lightbox-231202234418342"); if (ifr) { var src = ifr.src; var iframeParams = []; if (window.location.href && window.location.href.indexOf("?") > -1) { iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&')); } if (src && src.indexOf("?") > -1) { iframeParams = iframeParams.concat(src.substr(src.indexOf("?") + 1).split("&")); src = src.substr(0, src.indexOf("?")) } iframeParams.push("isIframeEmbed=1"); ifr.src = src + "?" + iframeParams.join('&'); } window.handleIFrameMessage = function(e) { if (typeof e.data === 'object') { return; } var args = e.data.split(":"); if (args.length > 2) { iframe = document.getElementById("lightbox-" + args[(args.length - 1)]); } else { iframe = document.getElementById("lightbox"); } if (!iframe) { return; } switch (args[0]) { case "scrollIntoView": iframe.scrollIntoView(); break; case "setHeight": iframe.style.height = args[1] + "px"; if (!isNaN(args[1]) && parseInt(iframe.style.minHeight) > parseInt(args[1])) { iframe.style.minHeight = args[1] + "px"; } break; case "collapseErrorPage": if (iframe.clientHeight > window.innerHeight) { iframe.style.height = window.innerHeight + "px"; } break; case "reloadPage": window.location.reload(); break; case "loadScript": if( !window.isPermitted(e.origin, ['jotform.com', 'jotform.pro']) ) { break; } var src = args[1]; if (args.length > 3) { src = args[1] + ':' + args[2]; } var script = document.createElement('script'); script.src = src; script.type = 'text/javascript'; document.body.appendChild(script); break; case "exitFullscreen": if (window.document.exitFullscreen) window.document.exitFullscreen(); else if (window.document.mozCancelFullScreen) window.document.mozCancelFullScreen(); else if (window.document.mozCancelFullscreen) window.document.mozCancelFullScreen(); else if (window.document.webkitExitFullscreen) window.document.webkitExitFullscreen(); else if (window.document.msExitFullscreen) window.document.msExitFullscreen(); break; } var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false; if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) { var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)}; iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*"); } }; window.isPermitted = function(originUrl, whitelisted_domains) { var url = document.createElement('a'); url.href = originUrl; var hostname = url.hostname; var result = false; if( typeof hostname !== 'undefined' ) { whitelisted_domains.forEach(function(element) { if( hostname.slice((-1 * element.length - 1)) === '.'.concat(element) || hostname === element ) { result = true; } }); return result; } }; if (window.addEventListener) { window.addEventListener("message", handleIFrameMessage, false); } else if (window.attachEvent) { window.attachEvent("onmessage", handleIFrameMessage); } </script></html>
