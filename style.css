@@ -152,7 +152,9 @@ img {
     display: none;
 }
 
-
+#about {
+    display: none;
+}
 
 /* Style the tab */
 .tab {
@@ -191,4 +193,14 @@ img {
 /* Style the tab content */
 .tabcontent {
     position: absolute;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    width: 100%;
 }
