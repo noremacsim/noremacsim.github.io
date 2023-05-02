@@ -70,6 +70,7 @@ window.browse = [
     ['Outlook', 'https://outlook.office.com/mail/', true, 'https://play-lh.googleusercontent.com/Zk9elS0eGXDr0L4W6-Ey7YwHbRNjkyezHC8iCc8rWp64lNIjlByS8TDF9qDSZbiEWY4=w240-h480-rw', true],
     ['Sky News', 'https://news.sky.com/', true, 'https://play-lh.googleusercontent.com/pHkMbBQj7MnKj7SYhVMan82alGvqDODnzO_sEeDiM91UfH4_mc05KtcXA4_ujSe-ag=w240-h480-rw', true],
     ['BBC News', 'https://www.bbc.co.uk/news', true, 'https://play-lh.googleusercontent.com/c2h7PtXYpCVIPVsNBMZ-iiwxZpAFm8ZP8rEyxZSihrQxHkSakqT_MstjJwlBi4HvS85b=w240-h480-rw', true],
+    ['Termuis', 'https://termius.com/', true, 'https://play-lh.googleusercontent.com/6jE8Xcb-2aT0UPJhIKXBT5dqCloawm66FiBCUHHjUeE2_4bMW3cXbFqGqQDPBmqfKn0=w240-h480-rw', true],
 
 ]
 
