@@ -37,7 +37,10 @@
 <div class="appHeader container">
     <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-            <a class="nav-link tablinks active" aria-current="page" id="tabStream" href="#stream" onclick="openTab(event, 'stream')">Stream</a>
+            <a class="nav-link tablinks active" aria-current="page" id="tabAll" href="#all" onclick="openTab(event, 'all')">All</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link tablinks" aria-current="page" id="tabStream" href="#stream" onclick="openTab(event, 'stream')">Stream</a>
         </li>
         <li class="nav-item">
             <a class="nav-link tablinks" href="#game" id="tabGame" onclick="openTab(event, 'game')">Game</a>
@@ -49,6 +52,13 @@
 </div>
 
 <div class="tabsContent">
+
+    <div id="all" class="tabcontent">
+        <div class="apps container">
+            <div class="d-flex justify-content-start flex-wrap mb-3" id="allHTML">
+            </div>
+        </div>
+    </div>
 
     <div id="stream" class="tabcontent">
         <div class="apps container">
