@@ -43,6 +43,10 @@ body {
     color: white;
 }
 
+#stream {
+    display: none;
+}
+
 #game {
     display: none;
 }
@@ -57,6 +61,9 @@ body {
     margin: 20px;
     font-size: 25px;
     float: right;
+    background: #363636;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .footer {
