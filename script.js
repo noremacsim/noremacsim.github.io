@@ -41,7 +41,7 @@ function buildAppTabs() {
 function addBlock(title, link, image, drive) {
     return `
     <div class="d-inline-flex position-relative p-2" onclick="navigate('${link}')">
-        <img class="rounded-4 shadow-4" src="${image}" alt="${title}" style="width: 100px; height: 100px;">
+        <img class="rounded-4 shadow-4" src="${image}" alt="${title}" style="width: 100px; height: 100px; background: white;">
     </div>`;
 }
 
