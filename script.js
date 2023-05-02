@@ -10,8 +10,7 @@ function buildAppTabs() {
     // Build Stream Apps
     if (stream.length > 0) {
         for (const element of stream) {
-            let link = element[2] ? `https://youtube.com/redirect?q=${element[1]}` : element[1];
-            $('#streamHTML').append(addBlock(element[0], link, element[3], element[4]));
+            $('#streamHTML').append(addBlock(element[0], element[1], element[3], element[4]));
         }
     } else {
         $('#tabStream').hide();
@@ -20,8 +19,7 @@ function buildAppTabs() {
     // Build Game Apps
     if (games.length > 0) {
         for (const element of games) {
-            let link = element[2] ? `https://youtube.com/redirect?q=${element[1]}` : element[1];
-            $('#gameHTML').append(addBlock(element[0], link, element[3], element[4]));
+            $('#gameHTML').append(addBlock(element[0], element[1], element[3], element[4]));
         }
     } else {
         $('#tabGame').hide();
@@ -30,8 +28,7 @@ function buildAppTabs() {
     // Build Browse Apps
     if (browse.length > 0) {
         for (const element of browse) {
-            let link = element[2] ? `https://youtube.com/redirect?q=${element[1]}` : element[1];
-            $('#browseHTML').append(addBlock(element[0], link, element[3], element[4]));
+            $('#browseHTML').append(addBlock(element[0], element[1], element[3], element[4]));
         }
     } else {
         $('#tabBrowse').hide();
