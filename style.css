@@ -50,3 +50,13 @@ body {
 #browse {
     display: none;
 }
+
+.fullscreen {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    color: white;
+    right: 0;
+    margin: 20px;
+    font-size: 40px;
+}
