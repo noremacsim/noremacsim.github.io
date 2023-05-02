@@ -52,11 +52,16 @@ body {
 }
 
 .fullscreen {
+    display: block;
+    color: white;
+    margin: 20px;
+    font-size: 25px;
+    float: right;
+}
+
+.footer {
     position: absolute;
     bottom: 0;
     display: block;
-    color: white;
-    right: 0;
-    margin: 20px;
-    font-size: 40px;
+    width: 100%;
 }
