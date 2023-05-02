@@ -11,7 +11,7 @@ function buildAppTabs() {
     if (stream.length > 0) {
         for (const element of stream) {
             let link = element[2] ? `https://youtube.com/redirect?q=${element[1]}` : element[1];
-            $('#streamHTML').append(addBlock(element[0], link, element[3]));
+            $('#streamHTML').append(addBlock(element[0], link, element[3], element[4]));
         }
     } else {
         $('#tabStream').hide();
@@ -21,7 +21,7 @@ function buildAppTabs() {
     if (games.length > 0) {
         for (const element of games) {
             let link = element[2] ? `https://youtube.com/redirect?q=${element[1]}` : element[1];
-            $('#gameHTML').append(addBlock(element[0], link, element[3]));
+            $('#gameHTML').append(addBlock(element[0], link, element[3], element[4]));
         }
     } else {
         $('#tabGame').hide();
@@ -31,23 +31,18 @@ function buildAppTabs() {
     if (browse.length > 0) {
         for (const element of browse) {
             let link = element[2] ? `https://youtube.com/redirect?q=${element[1]}` : element[1];
-            $('#browseHTML').append(addBlock(element[0], link, element[3]));
+            $('#browseHTML').append(addBlock(element[0], link, element[3], element[4]));
         }
     } else {
         $('#tabBrowse').hide();
     }
 }
 
-function addBlock(title, link, image) {
+function addBlock(title, link, image, drive) {
     return `
-    <a href="${link}">
-        <figure>
-            <img src="${image}">
-            <figcaption class="header__caption" role="presentation">
-                <h1 class="title title--primary">${title}</h1>
-            </figcaption>
-        </figure>
-    </a>`
+    <div class="d-inline-flex position-relative p-2" onclick="navigate('${link}')">
+        <img class="rounded-4 shadow-4" src="${image}" alt="${title}" style="width: 100px; height: 100px;">
+    </div>`;
 }
 
 function openTab(evt, cityName) {
@@ -69,4 +64,8 @@ function openTab(evt, cityName) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+function navigate(link) {
+    window.location = link;
 }
