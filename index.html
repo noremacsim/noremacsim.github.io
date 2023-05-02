@@ -77,6 +77,26 @@
     <div id="browse" class="tabcontent">
         <div class="apps container">
             <div class="d-flex flex-row justify-content-start flex-wrap mb-3" id="browseHTML">
+                <div class="d-inline-flex position-relative p-2" data-mdb-toggle="modal" data-mdb-target="#searchModal">
+                    <img class="rounded-4 shadow-4" src="https://images-eds-ssl.xboxlive.com/image?url=rOOPPWX9ohGfLksSzq1Wig8iTZ05uPbeb.DpV4tdbbbWNm1XXu8uEEIOyHxIQzbkg6QV19S8ccQ3rJJvQNmSUn_TC6y.r4fl_f9KOa1NN_xM_dIQYqurJp4Hx5.6pahDol7yzO6kUj5dDpUHeMO8DeUy4j1j3nWAb3FpbQDy62HqNt5tJA0oumeD.AUXipL0nv4zVEIvmPNRCpXAvcHAbPOseEO1d2lZRQuCAcZx5PzYaJwzPkskEea.PaAFnZB5kF_n8MfizglWus42hA4uvITSxw87Ms9MK99SID90opDn9szswm3koPJ.FRA_I_tR&format=source&w=120" alt="Search" style="width: 100px; height: 100px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searcgModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Custom Site</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <input type="search" id="customSite" class="form-control rounded" placeholder="http(s)://website.com" aria-label="Website" aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-outline-primary" onclick="navigate($('#customSite').val())">Go</button>
+                </div>
             </div>
         </div>
     </div>
