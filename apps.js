@@ -19,6 +19,7 @@ window.stream = [
     ['Audible', 'https://www.audible.co.uk/', true, 'https://images-eds-ssl.xboxlive.com/image?url=rOOPPWX9ohGfLksSzq1Wig8iTZ05uPbeb.DpV4tdbbbWNm1XXu8uEEIOyHxIQzbkg6QV19S8ccQ3rJJvQNmSUn_TC6y.r4fl_f9KOa1NN_xM_dIQYqurJp4Hx5.6pahDol7yzO6kUj5dDpUHeMO8DeUy4j1j3nWAb3FpbQDy62FObum0F9nvjLKgT_Xovk6lEkvYVCwGudSAr0ZaQiL.BoKzHUwhhxtyLtaqdFaD8S65fm.zpj1PrB23CYmbZAyQYGQY6Ipf.W49JAVUYSvJZGIXe6vyxKR_vL_l.TxWmg9U2Q044vQJft1fT6L4.VqT&format=source&w=120', false],
     ['Spotify', 'https://open.spotify.com/', true, 'https://store-images.s-microsoft.com/image/apps.10546.13571498826857201.6603a5e2-631f-4f29-9b08-f96589723808.dc893fe0-ecbc-4846-9ac6-b13886604095?w=120', true],
     ['Amazon Music', 'https://music.amazon.co.uk/', true, 'https://store-images.s-microsoft.com/image/apps.20311.13756631990520576.c7bf8936-a11d-4c89-b498-2442c2977baf.d9909661-86c4-4ca8-b820-20101dd12a50?w=120', true],
+    ['Youtube Music', 'https://music.youtube.com/', true, 'https://downloadr2.apkmirror.com/wp-content/uploads/2023/05/86/64518f59938dd.png', false],
     ['SoundCloud', 'https://soundcloud.com/', true, 'https://store-images.s-microsoft.com/image/apps.60306.13510798887403399.cc25e849-22ff-46b7-b971-cca1b8e3eda1.88314623-c0fe-4405-919b-89cbf200d52c?w=120', true],
     ['Apple Music', 'https://music.apple.com/', true, 'https://store-images.s-microsoft.com/image/apps.62962.14205055896346606.c235e3d6-fbce-45bb-9051-4be6c2ecba8f.28d7c3cb-0c64-40dc-9f24-53326f80a6dd?w=120', true],
     ['Pluto Tv', 'https://pluto.tv/', true, 'https://webtech-web-blu-assets.pluto.tv/assets/images/og_logo-9aeeae8b9656922ae6c516104741602f.png', false],
@@ -28,6 +29,7 @@ window.stream = [
     ['PeacockTv', 'https://www.peacocktv.com/', true, 'https://site-images.similarcdn.com/url?url=https%3A%2F%2Fplay-lh.googleusercontent.com%2FtmGaBmInLjXVZIb4lWe5-LXINRP2RiY77Vg_hOLu-rxXBsY9vKC78A_A3Pkyx9vNBE8%3Ds180&h=85b913b5e9476f32f4a9960f684b83506a824201edbdb22858242b574804364d', false],
     ['TubiTv', 'https://tubitv.com/', true, 'https://store-images.s-microsoft.com/image/apps.19755.13965262338309521.4a4e6ef1-0d71-4127-8260-1e77956c4b1d.e07238bd-6471-421d-af87-5ff392c6b80f', false],
     ['FuboTv', 'https://www.fubo.tv/welcome', true, 'https://store-images.s-microsoft.com/image/apps.15375.14572469166042117.4ceae6d3-7ec9-431f-ae4c-958a48a5d960.3ab6f91e-2df7-4a6f-b73c-05f08b0d1cff?mode=scale&q=90&h=200&w=200&background=%230078D7', false],
+    ['CrunchyRoll', 'http://crunchyroll.com', true, 'https://store-images.s-microsoft.com/image/apps.42966.9007199266244356.370cd3e1-1443-49bc-902b-67e1afc6fd9d.fb87303e-4c57-4c85-a8f6-5675b46c1651', false],
     ['Donate', 'https://www.paypal.com/donate/?hosted_button_id=RAFQ4WLY2NX62', false, 'https://www.littlewings.org.au/wp-content/uploads/bb-plugin/cache/72-727103_paypal-donate-button-png-transparent-png-200x200-square.png', true],
 ];
 
