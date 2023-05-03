@@ -22,6 +22,7 @@ window.stream = [
     ['SoundCloud', 'https://soundcloud.com/', true, 'https://store-images.s-microsoft.com/image/apps.60306.13510798887403399.cc25e849-22ff-46b7-b971-cca1b8e3eda1.88314623-c0fe-4405-919b-89cbf200d52c?w=120', true],
     ['Apple Music', 'https://music.apple.com/', true, 'https://store-images.s-microsoft.com/image/apps.62962.14205055896346606.c235e3d6-fbce-45bb-9051-4be6c2ecba8f.28d7c3cb-0c64-40dc-9f24-53326f80a6dd?w=120', true],
     ['Pluto Tv', 'https://pluto.tv/', true, 'https://webtech-web-blu-assets.pluto.tv/assets/images/og_logo-9aeeae8b9656922ae6c516104741602f.png', false],
+    ['Donate', 'https://www.paypal.com/donate/?hosted_button_id=RAFQ4WLY2NX62', false, 'https://www.littlewings.org.au/wp-content/uploads/bb-plugin/cache/72-727103_paypal-donate-button-png-transparent-png-200x200-square.png', true],
 ];
 
 window.game = [
@@ -40,8 +41,7 @@ window.game = [
     ['Hero Wars', 'https://www.hero-wars.com/', true, 'https://heroesweb-a.akamaihd.net/i/hw-web/v2/415201/images/logo/hw_logo_en.png', false],
     ['SlitherIo', 'http://slither.io/', true, 'https://www.trendsuk.co.uk/images/Page/slither-io-logo-general.jpg', false],
     ['Hole-io', 'https://hole-io.com/', true, 'https://hole-io.com/images/hole-io.png', false],
-
-
+    ['Donate', 'https://www.paypal.com/donate/?hosted_button_id=RAFQ4WLY2NX62', false, 'https://www.littlewings.org.au/wp-content/uploads/bb-plugin/cache/72-727103_paypal-donate-button-png-transparent-png-200x200-square.png', true],
 ]
 
 window.browse = [
@@ -71,7 +71,7 @@ window.browse = [
     ['Sky News', 'https://news.sky.com/', true, 'https://downloadr2.apkmirror.com/wp-content/uploads/2020/08/99/5f33f38542d9e.png', true],
     ['BBC News', 'https://www.bbc.co.uk/news', true, 'https://is3-ssl.mzstatic.com/image/thumb/Purple112/v4/31/17/79/311779d6-bfe8-d8d5-4782-81bd4c5f01ea/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg', true],
     ['Termuis', 'https://termius.com/', true, 'https://is2-ssl.mzstatic.com/image/thumb/Purple126/v4/c2/2e/da/c22edaa9-a946-8e05-62d0-314782a36f8d/icon.png/1200x630bb.png', true],
-
+    ['Donate', 'https://www.paypal.com/donate/?hosted_button_id=RAFQ4WLY2NX62', false, 'https://www.littlewings.org.au/wp-content/uploads/bb-plugin/cache/72-727103_paypal-donate-button-png-transparent-png-200x200-square.png', true],
 ]
 
 window.about = [
