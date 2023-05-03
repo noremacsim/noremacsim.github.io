@@ -11,7 +11,9 @@ function buildAppTabs() {
     if (stream.length > 0) {
         for (const element of stream) {
             $('#streamHTML').append(addBlock(element[0], element[1], element[3], element[4]));
-            $('#allHTML').append(addBlock(element[0], element[1], element[3], element[4]));
+            if (element[0] !== 'Donate') {
+                $('#allHTML').append(addBlock(element[0], element[1], element[3], element[4]));
+            }
         }
     } else {
         $('#tabStream').hide();
@@ -21,7 +23,9 @@ function buildAppTabs() {
     if (games.length > 0) {
         for (const element of games) {
             $('#gameHTML').append(addBlock(element[0], element[1], element[3], element[4]));
-            $('#allHTML').append(addBlock(element[0], element[1], element[3], element[4]));
+            if (element[0] !== 'Donate') {
+                $('#allHTML').append(addBlock(element[0], element[1], element[3], element[4]));
+            }
         }
     } else {
         $('#tabGame').hide();
