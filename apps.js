@@ -44,6 +44,9 @@ window.game = [
     ['Hero Wars', 'https://www.hero-wars.com/', true, 'https://heroesweb-a.akamaihd.net/i/hw-web/v2/415201/images/logo/hw_logo_en.png', false],
     ['SlitherIo', 'http://slither.io/', true, 'https://www.trendsuk.co.uk/images/Page/slither-io-logo-general.jpg', false],
     ['Hole-io', 'https://hole-io.com/', true, 'https://hole-io.com/images/hole-io.png', false],
+    ['Table-Tenis', 'https://play.famobi.com/table-tennis-world-tour/A1000-10', true, 'https://img.cdn.famobi.com/portal/html5games/images/tmp/TableTennis_WorldTour_Teaser.jpg?v=0.2-093a2fd2', true],
+    ['Color-Tunnel', 'https://play.famobi.com/color-tunnel/A1000-10', true, 'https://img.cdn.famobi.com/portal/html5games/images/tmp/ColorTunnelTeaser.jpg?v=0.2-093a2fd2', true],
+    ['Tap My Water', 'https://play.famobi.com/tap-my-water/A1000-10', true, 'https://img.cdn.famobi.com/portal/html5games/images/tmp/TapMyWaterTeaser.jpg?v=0.2-093a2fd2', true],
     ['Donate', 'https://www.paypal.com/donate/?hosted_button_id=RAFQ4WLY2NX62', false, 'https://www.littlewings.org.au/wp-content/uploads/bb-plugin/cache/72-727103_paypal-donate-button-png-transparent-png-200x200-square.png', true],
 ]
 
