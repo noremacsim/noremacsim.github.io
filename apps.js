@@ -37,6 +37,7 @@ window.stream = [
 window.game = [
     ['Xbox Cloud Gaming', 'https://www.xbox.com/en-us/play', true, 'https://images.macrumors.com/t/pT92j2c3I_lhW8OzErMWxS6FA1w=/1200x1200/smart/article-new/2020/12/xbox-logo.jpeg', false],
     ['Luna', 'https://luna.amazon.com/', true, 'https://m.media-amazon.com/images/I/51N11v0-CQL.png', false],
+    ['', 'https://cloud.boosteroid.com/', true, 'https://image.winudf.com/v2/image1/Y29tLmJvb3N0ZXJvaWQuc3RyZWFtaW5nX2ljb25fMTYxOTg3Njc0MV8wODM/icon.png?w=184&fakeurl=1', false],
     ['GForce Now', 'https://play.geforcenow.com/mall/#/layout/games', true, 'https://downloadr2.apkmirror.com/wp-content/uploads/2022/12/65/63a0aff2ec20c.png', false],
     ['Tetris', 'https://www.lumpty.com/amusements/Games/Tetris/tetris.html', true, 'https://store-images.s-microsoft.com/image/apps.34899.14599856911880793.8ead47c5-9a8f-4038-85f4-b13a895e5c77.034115c6-f95c-4b4b-82f1-f014d5d6d2c8?mode=scale&q=90&h=270&w=270&background=%23464646', true],
     ['Thug-Racer', 'https://monsterofcookie.itch.io/thug-racer', true, 'https://api.web.gamepix.com/assets/img/600/340/banner/thug-racer.png', true],
