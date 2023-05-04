@@ -44,7 +44,7 @@ function buildAppTabs() {
 
 function addBlock(title, link, image, drive) {
     return `
-    <div class="d-inline-flex position-relative p-2" onclick="navigate('${link}')">
+    <div class="d-inline-flex position-relative p-2" onclick="navigate('${link}', '${title}')">
         <img class="rounded-4 shadow-4" src="${image}" alt="${title}" style="width: 100px; height: 100px;">
     </div>`;
 }
@@ -70,6 +70,12 @@ function openTab(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 
-function navigate(link) {
+function navigate(link, title) {
+    gtag('event', 'open_app', {
+        event_category: 'apps',
+        event_action: 'Click',
+        event_label: title
+    });
+
     window.location = link;
 }
