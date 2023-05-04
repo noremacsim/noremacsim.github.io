@@ -71,8 +71,8 @@ function openTab(evt, cityName) {
 }
 
 function navigate(link, title) {
-    gtag('event', 'open_app', {
-        event_category: 'apps',
+    gtag('event', 'click', {
+        event_category: 'click',
         event_action: 'Click',
         event_label: title
     });
