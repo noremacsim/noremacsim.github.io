@@ -35,15 +35,6 @@ function buildAppTabs() {
     } else {
         $('#tabBrowse').hide();
     }
-
-    // Build Stream Apps
-    if (zoomapps.length > 0) {
-        for (const element of zoomapps) {
-            $('#zoomHTML').append(addBlock(element[0], element[1], element[3], element[4]));
-        }
-    } else {
-        $('#tabZoom').hide();
-    }
 }
 
 function addBlock(title, link, image, drive) {
