@@ -120,14 +120,7 @@
                     <label>URL</label>
                     <input type="url" id="newSiteUrl" class="form-control rounded" placeholder="http(s)://website.com" aria-label="Website" aria-describedby="search-addon" />
                 </div>
-                <div class="form-group mb-2">
-                    <label>Type</label>
-                    <select class="form-control" id="newSiteType">
-                        <option>Stream</option>
-                        <option>Game</option>
-                        <option>Browse</option>
-                    </select>
-                </div>
+                <input id="newSiteType" type="hidden">
                 <button type="button" class="btn btn-primary btn-lg btn-block mt-3" onclick="saveCustom($('#newSiteTitle').val(), $('#newSiteUrl').val(), $('#newSiteType').val())">Save</button>
             </div>
         </div>
@@ -167,20 +160,6 @@
                     </ul>
                 </div>
             </div>
-<!--            <div class="card">-->
-<!--                <div class="card-body">-->
-<!--                    <h5 class="card-title">How To Add Custom Apps</h5>-->
-<!--                    <p class="card-text">Click the Plus at the end of the list of apps, This will show a modal to add your own custom url</p>-->
-<!--                    <img class="cardImg" src="img/add-1.PNG">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="card">-->
-<!--                <div class="card-body">-->
-<!--                    <h5 class="card-title">How To Remove Apps</h5>-->
-<!--                    <p class="card-text">Touch and Hold down pn any app to show the delete icon. from here you can remove apps</p>-->
-<!--                    <img class="cardImg" src="img/del-1.PNG">-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     </div>
 </div>
