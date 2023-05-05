@@ -207,7 +207,7 @@ function cancelDeletes() {
     addToStorage();
 }
 
-$(document.body).on('press', '.appLink', function(e) {
+$(document.body).on('taphold', '.appLink', function(e) {
     e.preventDefault();
     $('.deleteApp').show(200);
     $('.apptabs').hide(200);
@@ -237,8 +237,6 @@ $(document.body).on('tap', '.deleteApp', function(e) {
     } else if (type === 'browse') {
         window.browse.splice(index, 1);
     }
-
-    console.log(window.stream);
 
     $(`#${type}-${index}`).remove();
 });
