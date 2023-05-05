@@ -1,8 +1,11 @@
 <!--    Title, Link, Fullscreen (True/false), ImageSrc, Works in Drive (true, false)-->
 
 window.fullscreen = false;
+window.version = 'v1';
+window.newversion_a = localStorage.getItem(`${window.version}-pop`);
 
-window.stream = [
+window.core = [];
+window.core.stream = [
     ['Netflix', 'https://netflix.com', true, 'https://store-images.s-microsoft.com/image/apps.56161.9007199266246365.1d5a6a53-3c49-4f80-95d7-78d76b0e05d0.a3e87fea-e03e-4c0a-8f26-9ecef205fa7b?w=120', false],
     ['Plex', 'https://app.plex.tv/desktop/#!/', true, 'https://images-eds-ssl.xboxlive.com/image?url=Q_rwcVSTCIytJ0KOzcjWTYl.n38D8jlKWXJx7NRJmQKBAEDCgtTAQ0JS02UoaiwRsDCcLS6OFHFfrsNxLIIAjQwPuLt5MeFHqrz4XXCpqzcCRRBS2QYjQOSI9idbPia8lKLwBy7waJxbm1H.ZuG8PQ--&format=source&w=120', false],
     ['Youtube', 'https://youtube.com', false, 'https://www.youtube.com/img/desktop/yt_1200.png', false],
@@ -32,10 +35,9 @@ window.stream = [
     ['TubiTv', 'https://tubitv.com/', true, 'https://store-images.s-microsoft.com/image/apps.19755.13965262338309521.4a4e6ef1-0d71-4127-8260-1e77956c4b1d.e07238bd-6471-421d-af87-5ff392c6b80f', false],
     ['FuboTv', 'https://www.fubo.tv/welcome', true, 'https://store-images.s-microsoft.com/image/apps.15375.14572469166042117.4ceae6d3-7ec9-431f-ae4c-958a48a5d960.3ab6f91e-2df7-4a6f-b73c-05f08b0d1cff?mode=scale&q=90&h=200&w=200&background=%230078D7', false],
     ['CrunchyRoll', 'http://crunchyroll.com', true, 'https://store-images.s-microsoft.com/image/apps.42966.9007199266244356.370cd3e1-1443-49bc-902b-67e1afc6fd9d.fb87303e-4c57-4c85-a8f6-5675b46c1651', false],
-    ['Donate', 'https://www.paypal.com/donate/?hosted_button_id=RAFQ4WLY2NX62', false, 'https://www.littlewings.org.au/wp-content/uploads/bb-plugin/cache/72-727103_paypal-donate-button-png-transparent-png-200x200-square.png', true],
 ];
 
-window.game = [
+window.core.game = [
     ['Xbox Cloud Gaming', 'https://www.xbox.com/en-us/play', true, 'https://images.macrumors.com/t/pT92j2c3I_lhW8OzErMWxS6FA1w=/1200x1200/smart/article-new/2020/12/xbox-logo.jpeg', false],
     ['Luna', 'https://luna.amazon.com/', true, 'https://m.media-amazon.com/images/I/51N11v0-CQL.png', false],
     ['', 'https://cloud.boosteroid.com/', true, 'https://image.winudf.com/v2/image1/Y29tLmJvb3N0ZXJvaWQuc3RyZWFtaW5nX2ljb25fMTYxOTg3Njc0MV8wODM/icon.png?w=184&fakeurl=1', false],
@@ -56,14 +58,13 @@ window.game = [
     ['Color-Tunnel', 'https://play.famobi.com/color-tunnel/A1000-10', true, 'https://img.cdn.famobi.com/portal/html5games/images/tmp/ColorTunnelTeaser.jpg?v=0.2-093a2fd2', true],
     ['Tap My Water', 'https://play.famobi.com/tap-my-water/A1000-10', true, 'https://img.cdn.famobi.com/portal/html5games/images/tmp/TapMyWaterTeaser.jpg?v=0.2-093a2fd2', true],
     ['Subway Surfers', 'https://play.gamemonetize.co/dx0i6elvlqg3qfzemfo9vhf93xxsufi8/', true, 'https://downloadr2.apkmirror.com/wp-content/uploads/2020/09/00/5f59e134a6a6e.png', true],
-    ['Donate', 'https://www.paypal.com/donate/?hosted_button_id=RAFQ4WLY2NX62', false, 'https://www.littlewings.org.au/wp-content/uploads/bb-plugin/cache/72-727103_paypal-donate-button-png-transparent-png-200x200-square.png', true],
 ]
 
-window.browse = [
+window.core.browse = [
     ['Twitter', 'https://twitter.com/', false, 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAAB3CAMAAAAO5y+4AAAAXVBMVEX///8dofIAnfIAm/EAmfEVn/IAl/Hg8P202/rx+f75/f/T6fzD4vuf0fiFxffq9f5MsPQppPJru/XZ7fxXtPWNyfen1fnL5vt3wPY+qvQAlPFkuPWZzvg9rPN2vPZv+CZ4AAAC8UlEQVRoge2Z6ZKqMBCFoTut7CHsDuD7P+YFRmcchQQatOpW5fupJIeT7nQWHMdisVgsFovFYrFYLP8/Z69s0yKLI/+DooGXEgIRAYJqwse/ZPQ+2egC5P4AkMn7P34MLN0sWPFQgg+qk7Jbj78Heakw5cjWX+2Kd0P3BfT8ukwRXFFzdDPChCM7WB7iPeo3HFlnaCoMLWMxJ3uDLmvi9EIojK+cz7q9m1ajrNw81N7UKRaaly5II1sMol5Bcrn5PCV8t7+cl54INXap9RIFgOFS40USuPXgegtPNKAZZndMLVxqqqH86RWb2fLnX3SyI6LaLuvEv6OIaq7u5JrofjfrGLJO9Bg9zF6jHOmyeQA4bodhPP3pBJtnZc+gy10TnsIHmP1NzkqbVm7OlHXi537ppLoH05XeL1s3mOkXxKWrb9ltiC9b9zGjH6UB+qaKQllrZd3FcmOmX5gpNGiDq/S6mwvkL2fXNEUXIcXdaoXDghDyhRXX7PUSSydPuX5ZW5yRBBD7a8bUhStXd5qexB1nXm0eCU/m3jW6rC3dBD+nRvjTN9HXXz09a083IXWbRQPA28LuNsw7oNwIFDfCpHZUySGluYYp2yM7LHXM+Sv2nj9rl2WZvSj8IIvTdstQ7pUdLRenrZ5xV1aNTLPfLzfaNR5fjeTUp70y7Cxe7O7Y4twpYHNKH2DXfCiYs3vIZVK2OaniI2QdubFYUn+I7OZiCQck1U34+YbqA6M8IdXq5MKdC8ITMa3zTCl/mzGLH6cojNo7l91ZAhlVrV6YdpwBdXj6KUXu9kujFeStfpzfIysT0A8yvCG2zjkh0+VNevgVv6xS48qPR+wwRq3p7YNzXTVKGKsGKv5p6En3+iVQCERDVEcIywOrRd6KdSVq7ipvF2ELxqUIsH1DrcgTpRtnQpUc7PWO72VqNsYEqLK3fh7z665Q040VTXzfXbVd+IFvckEeVV3TFmlaZEnn1eeDlzuLxWKxWCwWi8VisXyaf3jsH8eZomRXAAAAAElFTkSuQmCC', true],
     ['Facebook', 'https://facebook.com', false, 'https://cdn2.downdetector.com/static/uploads/logo/FB-f-Logo__blue_512.png', true],
     ['Messenger', 'https://www.messenger.com/', false, 'https://store-images.s-microsoft.com/image/apps.13171.9007199266726596.93d63a21-1e7a-4d3a-8c34-32a1018c1cd9.36e157b5-12fe-4810-8ebf-54fb360f4698?w=120', true],
-    ['Waze', 'https://www.waze.com/en-GB/live-map', false, 'https://pbs.twimg.com/profile_images/1611472516920520705/gWLeDDCJ_400x400.jpg', true],
+    ['Waze', 'https://teslawaze.azurewebsites.net/', false, 'https://pbs.twimg.com/profile_images/1611472516920520705/gWLeDDCJ_400x400.jpg', true],
     ['Reddit', 'https://reddit.com', false, 'https://store-images.s-microsoft.com/image/apps.43920.14375561300249796.3fb405cc-7a1a-4cf0-9cab-d5168cfe86d5.5a28803e-e2ff-410f-a6ee-1d6a0c6905d1?w=120', true],
     ['Google Keep', 'https://keep.google.com/', true, 'https://motherfrunker.ca/app/images/keep.png', true],
     ['Remote Desktop', 'https://remotedesktop.google.com/access', true, 'https://motherfrunker.ca/app/images/chromeremotedesktop.png', false],
@@ -88,10 +89,9 @@ window.browse = [
     ['Termuis', 'https://termius.com/', true, 'https://is2-ssl.mzstatic.com/image/thumb/Purple126/v4/c2/2e/da/c22edaa9-a946-8e05-62d0-314782a36f8d/icon.png/1200x630bb.png', true],
     ['Google Meet', 'https://meet.google.com/', false, 'https://static.vecteezy.com/system/resources/previews/018/911/645/original/google-meet-editorial-logo-app-icon-illustration-free-vector.jpg', true],
     ['Teams', 'https://teams.microsoft.com/', false, 'https://www.robertjgates.com/wp-content/uploads/2019/01/app-icon-ms-teams-1.png', true],
-    ['Donate', 'https://www.paypal.com/donate/?hosted_button_id=RAFQ4WLY2NX62', false, 'https://www.littlewings.org.au/wp-content/uploads/bb-plugin/cache/72-727103_paypal-donate-button-png-transparent-png-200x200-square.png', true],
 ]
 
-window.about = [
+window.core.about = [
     ['Donate Paypal', 'https://www.paypal.com/donate/?hosted_button_id=BK84C2HRCF2HN', false, 'https://bournemouth.foodbank.org.uk/wp-content/uploads/sites/64/2021/06/PayPal-Donate-Button-Download-PNG.png', true],
     ['Patron', 'https://www.patreon.com/Noremacsim', false, 'data:image/png;base64,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', true],
 ]
