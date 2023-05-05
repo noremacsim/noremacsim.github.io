@@ -83,8 +83,8 @@ body {
 
 .deleteApp {
     position: absolute;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     right: 0px;
     top: 0;
     background: white;
@@ -123,4 +123,18 @@ body {
 .cardImg {
     max-width: fit-content;;
     width: -webkit-fill-available;
+}
+
+.layoutId {
+    color: white;
+    width: 100%;
+    padding-top: 25px;
+    padding-left: 10px;
+}
+
+.layoutIdSpan {
+    background: #444343;
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid grey;
 }
