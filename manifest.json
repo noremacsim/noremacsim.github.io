@@ -1,0 +1,16 @@
+{
+  "background_color": "#ffffff",
+  "description": "Web Based Browser Apps, Run all these applications directly form your car or device browser. initially made for Tesla Vehicles",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Tesla App",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Tesla Apps",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": [],
+  "screenshots": [],
+  "icons": [],
+  "shortcuts": []
+}
