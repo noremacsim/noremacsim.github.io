@@ -1,16 +1,27 @@
 {
-  "background_color": "#ffffff",
+  "dir" : "ltr",
+  "lang" : "en-GB",
+  "name" : "SimFlix",
+  "scope" : "/",
+  "display" : "standalone",
+  "start_url" : "/",
+  "short_name" : "SimFlix",
+  "theme_color" : "transparent",
+  "prefer_related_applications": false,
   "description": "Web Based Browser Apps, Run all these applications directly form your car or device browser. initially made for Tesla Vehicles",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "Tesla App",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "Tesla Apps",
-  "start_url": "/",
-  "theme_color": "#ffffff",
-  "categories": [],
-  "screenshots": [],
-  "icons": [],
-  "shortcuts": []
+  "orientation" : "any",
+  "background_color" : "#fff",
+  "generated" : "true",
+  "icons" : [
+    {
+      "src": "/assets/images/largeicon.png",
+      "sizes": "130x130",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icon.png",
+      "sizes": "80x80",
+      "type": "image/png"
+    }
+  ]
 }
