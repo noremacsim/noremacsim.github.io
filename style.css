@@ -72,3 +72,55 @@ body {
     display: block;
     width: 100%;
 }
+
+.figtext {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.deleteApp {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    right: 0px;
+    top: 0;
+    background: white;
+    padding: 2px;
+    border-radius: 10px;
+    display: none;
+}
+
+.deleteAppTitle {
+    color: red !important;
+    font-weight: bold !important;
+    font-size: 25px !important;
+    background: transparent !important;
+}
+
+.deleteAppCancel {
+    background: lightgreen !important;
+    font-size: 20px !important;
+}
+
+.canceltabs {
+    display: none;
+}
+
+.help {
+    display: block;
+    color: white;
+    margin: 20px;
+    font-size: 25px;
+    float: left;
+    background: #363636;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.cardImg {
+    max-width: fit-content;;
+    width: -webkit-fill-available;
+}
