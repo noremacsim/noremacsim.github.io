@@ -140,6 +140,14 @@ function addToStorage() {
     buildAppTabs();
 }
 
+function resetData() {
+    window.stream = window.core.stream;
+    window.game = window.core.game;
+    window.browse = window.core.browse;
+    addToStorage();
+    location.reload();
+}
+
 async function getFromStorage() {
     return new Promise((resolve, reject) => {
         if ("stream" in localStorage) {
