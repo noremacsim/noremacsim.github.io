@@ -5,6 +5,7 @@
   "scope" : "/",
   "display" : "standalone",
   "start_url" : "/",
+  "id": "/",
   "short_name" : "SimFlix",
   "theme_color" : "transparent",
   "prefer_related_applications": false,
@@ -16,12 +17,20 @@
     {
       "src": "/assets/images/largeicon.png",
       "sizes": "130x130",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/assets/images/icon.png",
       "sizes": "80x80",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/largericon.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
