@@ -64,14 +64,24 @@ function buildAppTabs() {
     $('#streamHTML').append(paypalHtml);
     $('#gameHTML').append(paypalHtml);
 
-    let newAppHtml = `
-        <div class="d-inline-flex position-relative p-2" data-mdb-toggle="modal" data-mdb-target="#newAppModal">
+
+    $('#streamHTML').append(`
+        <div class="d-inline-flex position-relative p-2 newAppModalButton" data-type="stream">
             <img class="rounded-9 shadow-4" src="https://static.thenounproject.com/png/953211-200.png" alt="Search" style="width: 100px;height: 100px;background: #c1c1c1;border: 1px solid black;">
         </div>
-    `;
-    $('#streamHTML').append(newAppHtml);
-    $('#gameHTML').append(newAppHtml);
-    $('#browseHTML').append(newAppHtml);
+    `);
+
+    $('#gameHTML').append(`
+        <div class="d-inline-flex position-relative p-2 newAppModalButton" data-type="game">
+            <img class="rounded-9 shadow-4" src="https://static.thenounproject.com/png/953211-200.png" alt="Search" style="width: 100px;height: 100px;background: #c1c1c1;border: 1px solid black;">
+        </div>
+    `);
+
+    $('#browseHTML').append(`
+        <div class="d-inline-flex position-relative p-2 newAppModalButton" data-type="browse">
+            <img class="rounded-9 shadow-4" src="https://static.thenounproject.com/png/953211-200.png" alt="Search" style="width: 100px;height: 100px;background: #c1c1c1;border: 1px solid black;">
+        </div>
+    `);
 
 }
 
@@ -158,11 +168,11 @@ async function getFromStorage() {
 function saveCustom(title, link, type) {
     let app = [title, link, true, createAppImage(title), false];
 
-    if (type === 'Stream') {
+    if (type === 'stream') {
         window.stream.push(app);
-    } else if (type === 'Game') {
+    } else if (type === 'game') {
         window.game.push(app);
-    } else if (type === 'Browse') {
+    } else if (type === 'browse') {
         window.browse.push(app);
     }
     addToStorage();
@@ -196,7 +206,6 @@ function createAppImage(title) {
     ctx.textAlign = "center";
     ctx.fillStyle = 'white';
     ctx.fillText(title, canvas.width/2, canvas.height/2);
-    console.log(canvas.toDataURL('image/jpeg'));
     return canvas.toDataURL('image/jpeg');
 }
 
@@ -239,4 +248,11 @@ $(document.body).on('tap', '.deleteApp', function(e) {
     }
 
     $(`#${type}-${index}`).remove();
+});
+
+$(document.body).on('tap', '.newAppModalButton', function(e) {
+    e.preventDefault();
+    let type = $(this).attr("data-type");
+    $('#newSiteType').val(type);
+    $('#newAppModal').modal('show');
 });
