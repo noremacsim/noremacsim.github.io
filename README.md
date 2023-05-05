@@ -15,3 +15,5 @@ Below is what the project looks like on a Model 3 or Model Y when in theater mod
 This product is not in any way related to the Tesla brand or any of the other brands displayed within. Navigating to each service brings you to their official application served securely over HTTPS. None of the user's information is stored by this application. This application is served securely through SSL on HTTPS, and all traffic is encrypted. Google Analytics is used purely to see user counts.
 
 ## License
+BSD 3-Clause License
+
