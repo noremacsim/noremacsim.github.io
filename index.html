@@ -158,17 +158,34 @@
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-warning"><a href="https://github.com/noremacsim/noremacsim.github.io/issues">Report an issue</a></li>
                         <li class="list-group-item list-group-item-danger"><a href="#reset" onclick="resetData()">Reset Local User Data</a></li>
+                        <li class="list-group-item list-group-item-danger"><button id="installApp">Install Test</button></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    
+
 <script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('sw.js')
-  }
+    if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+    }
+
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e;
+    });
+
+    const installApp = document.getElementById('installApp');
+    installApp.addEventListener('click', async () => {
+        if (deferredPrompt !== null) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                deferredPrompt = null;
+            }
+        }
+    });
 </script>
 <script src="apps.js"></script>
 <script src="script.js"></script>
