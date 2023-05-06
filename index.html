@@ -42,8 +42,6 @@
 </head>
 <body>
 
-<canvas id="myCanvas" style="display: none;"></canvas>
-
 <div class="appHeader container apptabs">
     <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
@@ -112,23 +110,78 @@
 </div>
 
 <div class="modal fade" id="newAppModal" tabindex="-1" aria-labelledby="newAppModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="max-width: 570px !important;">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add New Site</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="form-group mb-2">
-                    <label>App Name</label>
-                    <input type="url" id="newSiteTitle" class="form-control rounded" placeholder="Title" aria-label="Website" aria-describedby="search-addon" />
+
+            <div class="accordion" id="newAppAccordian">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingAdd">
+                        <button
+                                class="accordion-button"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#collapseAdd"
+                                aria-expanded="false"
+                                aria-controls="collapseAdd"
+                        >
+                            Add App
+                        </button>
+                    </h2>
+                    <div id="collapseAdd" class="accordion-collapse collapse show" aria-labelledby="headingAdd" data-mdb-parent="#newAppAccordian">
+                        <div class="accordion-body">
+                            <div class="apps container" style="max-height: 400px;overflow: scroll;overflow-x: hidden;">
+                                <div class="d-flex justify-content-center flex-wrap mb-3" id="newAppList">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group mb-2">
-                    <label>URL</label>
-                    <input type="url" id="newSiteUrl" class="form-control rounded" placeholder="http(s)://website.com" aria-label="Website" aria-describedby="search-addon" />
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNew">
+                        <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#collapseNew"
+                                aria-expanded="true"
+                                aria-controls="collapseNew"
+                        >
+                            Create New
+                        </button>
+                    </h2>
+                    <div id="collapseNew" class="accordion-collapse collapse" aria-labelledby="headingNew" data-mdb-parent="#newAppAccordian">
+                        <div class="accordion-body">
+                            <div class="modal-body">
+
+                                <div class="form-group mb-2">
+                                    <label>App Name</label>
+                                    <input type="url" id="newSiteTitle" class="form-control rounded" placeholder="Title" aria-label="Website" aria-describedby="search-addon" />
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label>URL</label>
+                                    <input type="url" id="newSiteUrl" class="form-control rounded" placeholder="http(s)://website.com" aria-label="Website" aria-describedby="search-addon" />
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label>Image Url</label>
+                                    <input type="url" id="newSiteImageUrl" class="form-control rounded" placeholder="http://google.com/image/example.png" aria-label="image url" aria-describedby="search-addon" />
+                                </div>
+                                <input id="newSiteType" type="hidden">
+                                <div class="imageLogoPlaceholder">
+                                    <canvas id="myCanvas" style="display: block; display: none;margin: auto;"></canvas>
+                                    <img id="imageLogoExample" style="display: block; display: none; width: 100px; height: 100px;margin: auto;">
+                                </div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block mt-3" onclick="saveCustom($('#newSiteTitle').val(), $('#newSiteUrl').val(), $('#newSiteType').val(), $('#newSiteImageUrl').val())">Save</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <input id="newSiteType" type="hidden">
-                <button type="button" class="btn btn-primary btn-lg btn-block mt-3" onclick="saveCustom($('#newSiteTitle').val(), $('#newSiteUrl').val(), $('#newSiteType').val())">Save</button>
+
             </div>
         </div>
     </div>
@@ -190,11 +243,13 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5>Recent Release (v1.5)</h5>
+                    <h5>Recent Release (v2)</h5>
                     <ul class="list-group">
-                        <li class="list-group-item list-group-item-success">You Can Edit And Manage Your Lists Accross Devices</li>
-                        <li class="list-group-item list-group-item-success">Generate A Unique AppList ID to Import on Any Device</li>
+                        <li class="list-group-item list-group-item-success">Add Predefined apps or Create new from the add app button</li>
+                        <li class="list-group-item list-group-item-success">Add Logo to your custom url/apps</li>
                         <li class="list-group-item list-group-item-info">Usability Improvements</li>
+                        <li class="list-group-item list-group-item-info">Share Custom List Improvements</li>
+                        <li class="list-group-item list-group-item-info">AppList ID's dont expire</li>
                     </ul>
                 </div>
             </div>
@@ -217,6 +272,12 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-mdb-parent="#accordionExample">
                         <div class="accordion-body">
+                            <h5>Version v1.5</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-success">You Can Edit And Manage Your Lists Accross Devices</li>
+                                <li class="list-group-item list-group-item-success">Generate A Unique AppList ID to Import on Any Device</li>
+                                <li class="list-group-item list-group-item-info">Usability Improvements</li>
+                            </ul>
                             <h5>Version v1.1</h5>
                             <ul class="list-group">
                                 <li class="list-group-item list-group-item-info">You can Now Add and Delete Apps. All your changes are saved locally</li>

@@ -1,12 +1,7 @@
-const pantryUrl = 'https://getpantry.cloud/apiv1'
-const pantryUid = '3ee32a9d-fde4-448c-afd3-049fd20e2b77';
+const apiUrl = 'https://simflix.online';
 
-async function generateLayoutShare() {
+async function generateLayoutShare(name) {
     return new Promise(async (resolve, reject) => {
-
-        const name = createShareKey(7);
-        let type = stream;
-
         if ("apps" in localStorage) {
             if (JSON.parse(localStorage.getItem("apps")).length < 1) {
                 resolve('ERROR')
@@ -15,7 +10,7 @@ async function generateLayoutShare() {
             }
 
             let settings = {
-                "url": `${pantryUrl}/pantry/${pantryUid}/basket/${name}`,
+                "url": `${apiUrl}/create.php?name=${name}`,
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
@@ -34,7 +29,7 @@ async function generateLayoutShare() {
 async function getLayoutShare(code) {
     return new Promise(async (resolve, reject) => {
         let settings = {
-            "url": `${pantryUrl}/pantry/${pantryUid}/basket/${code}`,
+            "url": `${apiUrl}/get.php?name=${code}`,
             "method": "GET",
             "timeout": 0,
             "headers": {

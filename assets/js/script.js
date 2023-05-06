@@ -109,8 +109,14 @@ async function getFromStorage() {
     });
 }
 
-function saveCustom(title, link, type) {
-    let app = [title, link, true, createAppImage(title), false];
+function saveCustom(title, link, type, imageUrl) {
+
+    let image = imageUrl;
+    if (imageUrl == '') {
+        image = createAppImage(title);
+    }
+
+    let app = [title, link, true, image, false];
 
     if (typeof window.apps[type] == "undefined") {
         window.apps[type] = [];
@@ -175,6 +181,39 @@ async function importAppList(id) {
     })
 }
 
+function updateexampleLogoImage() {
+    if ($('#newSiteImageUrl').val()) {
+        $('#myCanvas').hide();
+        $('#imageLogoExample').show();
+        $('#imageLogoExample').css('display', 'block');
+        $("#imageLogoExample").attr("src", $('#newSiteImageUrl').val());
+    } else {
+        createAppImage($('#newSiteTitle').val());
+        $('#imageLogoExample').hide();
+        $('#myCanvas').show();
+        $('#myCanvas').css('display', 'block');
+    }
+}
+
+function populateNewAppModel(type)
+{
+
+    let index = 0;
+    $('#newAppList').html('');
+
+    if (coreApps[type].length > 0) {
+        for (const element of coreApps[type]) {
+            $('#newAppList').append(`
+                <div id="${type}-${index}" class="d-inline-flex position-relative p-2 addApp" data-type='${type}' data-image='${element[3]}' data-link='${element[1]}' data-title='${element[0]}')">
+                    <img class="deleteApp" data-index='${index}' data-type='${type}' src="https://www.transparentpng.com/thumb/red-cross/dU1a5L-flag-x-mark-clip-art-computer-icons.png">
+                    <img class="rounded-9 shadow-4" src="${element[3]}" alt="${element[0]}" style="width: 100px; height: 100px;">
+                </div>`
+            );
+            index++;
+        }
+    }
+}
+
 $(document.body).on('taphold', '.appLink', function(e) {
     e.preventDefault();
     $('.deleteApp').show(200);
@@ -191,6 +230,15 @@ $(document.body).on('tap', '.appLink', function(e) {
     let link = $(this).attr("data-link");
     let title = $(this).attr("data-title");
     navigate(link, title);
+});
+
+$(document.body).on('tap', '.addApp', function(e) {
+    e.preventDefault();
+    let link = $(this).attr("data-link");
+    let title = $(this).attr("data-title");
+    let type =  $(this).attr("data-type");
+    let image = $(this).attr("data-image");
+    saveCustom(title, link, type, image);
 });
 
 $(document.body).on('tap', '.deleteApp', function(e) {
@@ -214,25 +262,21 @@ $(document.body).on('tap', '.newAppModalButton', function(e) {
     let type = $(this).attr("data-type");
     $('#newSiteType').val(type);
     $('#newAppModal').modal('show');
+    populateNewAppModel(type);
 });
 
 $(document.body).on('tap', '#generateCode', async function (e) {
     e.preventDefault();
     let code = 'ERROR';
+    const name = createShareKey(7);
 
     $('#importInput').hide();
     $('#appCode').show();
     $('#appCode').prop("readonly", true);
     $('#appCode').css('background', 'transparent');
+    $('#appCode').val(name);
 
-
-    await generateLayoutShare().then(data => {
-        if (data !== 'ERROR') {
-            const codeSplit = data.split("basket: ");
-            code = codeSplit[1];
-        }
-
-        $('#appCode').val(code.slice(0, -1));
+    await generateLayoutShare(name).then(data => {
     });
 });
 
@@ -240,4 +284,12 @@ $(document.body).on('tap', '#importCode', async function (e) {
     e.preventDefault();
     $('#appCode').hide();
     $('#importInput').show();
+});
+
+$('#newSiteTitle').on('keyup change', function() {
+    updateexampleLogoImage();
+});
+
+$('#newSiteImageUrl').on('keyup change', function() {
+    updateexampleLogoImage();
 });

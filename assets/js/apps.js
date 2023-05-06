@@ -1,7 +1,7 @@
 <!--    Title, Link, Fullscreen (True/false), ImageSrc, Works in Drive (true, false)-->
 
 window.fullscreen = false;
-window.version = 'v2';
+window.version = 'v3';
 window.newversion_a = localStorage.getItem(`${window.version}-pop`);
 window.apps = [];
 window.categories = [
@@ -26,6 +26,8 @@ const coreApps = {
         ['Twitch', 'https://www.twitch.tv/', true, 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAC6CAMAAAAu0KfDAAAAolBMVEWRRv8AAAD///+XSf9YK5dwNsORj5U9NkqGQOwUCiTZ191EPkw7HWnMzMyIg5D6+vpfX182Njbj4+N3OdFQTFoxMTEdHR2LQ/QdDjQhEDuDP+UREREqKirLyNAtFlAxGFZ9PNwZDC4PBxskICycnJx/foEoJS0XCykLBRUkEUHw8PA+Pj5JSUlqamrW1ta/vMQcFSU3G2CloaxeWWY0Lz1mMbJN9tfAAAAC30lEQVR4nO3bbVPaQBSG4aTbtBKhVFcoAYKArRBti2nt//9rFRHYvA4JZ09ynOf+GAJek9kDihvHQQghhBBCCCGEEEIIIYQQQgghhBB6zynKeOXeR8K+ccq1S1jngpHuUcpZ6d5CKF15Aamcj668Dq2cjU47oax0bymV7o2OP/Lu+6ez+nHPSFfanNDPH87Lv+Sjq3liQgXR0xMqiO6tpNIzn0RS6EqPXJl0NV5n3o9l0HM/Q2XQs6tFCF3pKEcugZ4zoVLoF7lwCXRV9Ofcu6M/9Hb9Thztvx3ttZneexxum3ztm0evJ8Pd4VbTr3aPpuj7J4EOOuiggw466KCDDjrooIMOOugl9IFc+s/p4KXpryT99eDL4TbTD18hJegivkI6PdBBB7319M1aKn2zfx1x9INcHP0od5ey6Ju74+t0rW0vtUEPjW1YM3ubSy3QjdXidi1ui6Wnh6bc5gYBcvrmyZCPbe6jpqaH98Y6t7wVhpbONKEW6OY6j21vXCelJybU6jqnppvrPB5bhpPSw+fjsyOG2xzo6OaEcsiL6U9f0v1JfAsQph82Nu3FLLunC+nZLh9M+VXxiQzrvCL9pn+afGb9veUcuj8sPm3JdSNSLbpfchbLhNamh9Pik2551nlNevjYCnkNetmERozy6nR/UnIK5/12lentmNA69HBQ/PiMc7VUppdN6GzOe1dsNbpfcs07zNe8Ev1v2TrnndCq9OeSxwJ+eRV6SdGcX05DD5qQ09DZJ5SM3sA6p6E3s1oo6JFuSH42vTNvSn42vZkJJaBPGpQ7Ssfd3G5zpFHqnHjeoLywvLshA+7fDeuVQw+0CLnjZOgLKfIMnf0vifql6JGYa56my1ktToo+kiRP0GXJTbqkdb5NS73mBn0lTX6grz1p8j19IU/+Rh8JlO/oK4nyV7rAdb5Nb+VNI+ql3Y7Ma76lS5U7+p9UucP7fyGEEEIIIYQQQgghhE7uP0KdYkCHrYPYAAAAAElFTkSuQmCC', false],
         ['Audible', 'https://www.audible.co.uk/', true, 'https://images-eds-ssl.xboxlive.com/image?url=rOOPPWX9ohGfLksSzq1Wig8iTZ05uPbeb.DpV4tdbbbWNm1XXu8uEEIOyHxIQzbkg6QV19S8ccQ3rJJvQNmSUn_TC6y.r4fl_f9KOa1NN_xM_dIQYqurJp4Hx5.6pahDol7yzO6kUj5dDpUHeMO8DeUy4j1j3nWAb3FpbQDy62FObum0F9nvjLKgT_Xovk6lEkvYVCwGudSAr0ZaQiL.BoKzHUwhhxtyLtaqdFaD8S65fm.zpj1PrB23CYmbZAyQYGQY6Ipf.W49JAVUYSvJZGIXe6vyxKR_vL_l.TxWmg9U2Q044vQJft1fT6L4.VqT&format=source&w=120', false],
         ['Spotify', 'https://open.spotify.com/', true, 'https://store-images.s-microsoft.com/image/apps.10546.13571498826857201.6603a5e2-631f-4f29-9b08-f96589723808.dc893fe0-ecbc-4846-9ac6-b13886604095?w=120', true],
+        ['siriusxm', 'https://www.siriusxm.com/', true, 'https://store-images.s-microsoft.com/image/apps.15493.13510798886647914.eed4c881-9f8d-4e6f-bd4c-de4fe5a3cd18.9b355fb8-f3de-4c8b-a09f-19a18348acb2', true],
+        ['Directv', 'https://www.directv.com/', true, 'https://www.mactrast.com/wp-content/uploads/2016/09/directv-app-logo-new.jpg', false],
         ['Amazon Music', 'https://music.amazon.co.uk/', true, 'https://store-images.s-microsoft.com/image/apps.20311.13756631990520576.c7bf8936-a11d-4c89-b498-2442c2977baf.d9909661-86c4-4ca8-b820-20101dd12a50?w=120', true],
         ['Youtube Music', 'https://music.youtube.com/', true, 'https://downloadr2.apkmirror.com/wp-content/uploads/2023/05/86/64518f59938dd.png', false],
         ['SoundCloud', 'https://soundcloud.com/', true, 'https://store-images.s-microsoft.com/image/apps.60306.13510798887403399.cc25e849-22ff-46b7-b971-cca1b8e3eda1.88314623-c0fe-4405-919b-89cbf200d52c?w=120', true],
