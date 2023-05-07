@@ -2,6 +2,8 @@ $(document).ready(async function () {
     await startApp();
 });
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 async function startApp() {
     let appId = await getAppID();
 
@@ -9,6 +11,8 @@ async function startApp() {
         await createAppID()
         appId = window.appId;
     }
+
+    await delay(1000);
 
     await getLayoutShare(appId).then(async data => {
         window.user = data;
