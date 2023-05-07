@@ -40,6 +40,7 @@ const coreApps = [
         ['BBC Iplayer', 'https://www.bbc.co.uk/iplayer', true, 'https://pbs.twimg.com/profile_images/1450745962016686085/PFHb1vtn_400x400.jpg', 'stream'],
         ['Disney Plus', 'https://www.disneyplus.com/en-gb', true, 'https://store-images.s-microsoft.com/image/apps.6899.14495311847124170.e89a4dce-fd9a-4a10-b8e4-a6c3aa1c055e.bcea8b9e-9a72-45eb-a2fc-e265b7dc1915', 'stream'],
         ['STV Player', 'https://player.stv.tv/', true, 'https://m.media-amazon.com/images/I/61TW-Oksl-L.png', 'stream'],
+        ['DishAnywhere', 'dishanywhere.com', true, 'https://s1.mzstatic.com/us/r30/Purple4/v4/c2/fe/d9/c2fed965-760a-138d-e334-016939fc2a19/mzl.uvxeqqvh.jpg', 'stream'],
         ['Paramount+', 'https://www.paramountplus.com/gb/', true, 'https://store-images.s-microsoft.com/image/apps.14266.9007199266243596.1230f3f2-f93f-4f0e-8de0-9e19b3939e30.3f46be48-a90d-44e5-a76c-9969b7d89625?w=120', 'stream'],
         ['Prime Video', 'https://primevideo.com', true, 'https://www.fullscreentesla.com/static/media/prime.0563c23e38eaa072810d.png', 'stream'],
         ['My 5', 'https://www.my5.tv/', true, 'https://www.technologybloggers.org/wp-content/uploads/2020/01/Tesla-My5-250.jpg', 'stream'],
