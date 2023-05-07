@@ -10,9 +10,13 @@ h1, h2 {
     font: inherit;
 }
 
+html {
+    background: white;
+}
+
 body {
     font:16px/1.2 'Poppins', sans-serif;
-    background: linear-gradient(45deg, hsl(0deg 0% 0% / 70%), rgb(0 0 0 / 67%));
+    background: white;
 }
 
 .appHeader {
@@ -137,4 +141,143 @@ body {
     padding: 7px;
     border-radius: 10px;
     border: 1px solid grey;
+}
+
+.ImageStyleChooseLabel {
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+    background: url(/assets/images/largeicon.png);
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+}
+
+.imageButtons .ui-checkboxradio-checked {
+    filter: grayscale(70%);
+}
+
+.appsSearch .ui-textinput {
+    width: 100%;
+}
+
+.header {
+    margin: auto;
+    display: block;
+    width: fit-content;
+    text-align: center;
+    color: black;
+}
+.settingsButton {
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: #3b71ca;
+    box-shadow: 0 4px 9px -4px #3b71ca;
+    padding: 13px;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 25px;
+    color: white;
+}
+
+.fullscreenButton {
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: #3b71ca;
+    box-shadow: 0 4px 9px -4px #3b71ca;
+    padding: 13px;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 25px;
+    color: white;
+}
+
+.newAppIconPlus {
+    position: absolute;
+    top: 17%;
+    left: 32%;
+    font-size: 76px;
+    font-weight: 400;
+}
+
+.newAppIcon {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #bdc1c7;
+    border-radius: 15px;
+    color: #c0c6cf;
+}
+
+#userHTML {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+}
+
+@media (max-width: 480px) {
+    .homeContainer {
+        margin-top: 5rem !important;
+    }
+
+    .homeContainer #userHTML {
+        margin-top: 15px;
+    }
+
+    .homeContainer .profileImage {
+        width: 90px !important;
+    }
+
+    .homeContainer .appsImage {
+        width: 80px!important;
+        height: 80px !important;
+    }
+
+    .homeContainer .deleteApp {
+        width: 30px!important;
+        height: 30px !important;
+    }
+
+    .homeContainer .newAppIcon {
+        width: 80px!important;
+        height: 80px !important;
+    }
+
+    .newAppIconPlus {
+        top: 13% !important;
+        left: 30% !important;
+        font-size: 70px !important;
+    }
+
+    .accordion-body {
+        padding: 8px !important;
+    }
+
+    #newAppList img{
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    #streamHTML img{
+        width: 70px !important;
+        height: 70px !important;
+    }
+}
+
+.appStyleSqaure {
+    border-radius: 0px !important;
+}
+
+.appStylesRounded {
+    border-radius: 15px !important;
+}
+
+.appStylesCircle {
+    border-radius: 50% !important;
+}
+
+.textarea {
+    height: 100px !important;
 }

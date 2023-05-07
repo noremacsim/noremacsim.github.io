@@ -1,33 +1,38 @@
 const apiUrl = 'https://simflix.online';
 
-async function generateLayoutShare(name) {
+async function saveLayout() {
     return new Promise(async (resolve, reject) => {
-        if ("apps" in localStorage) {
-            if (JSON.parse(localStorage.getItem("apps")).length < 1) {
+        const name = window.appId;
+
+        if ("user" in localStorage) {
+            if (JSON.parse(localStorage.getItem("user")).length < 1) {
                 resolve('ERROR')
             } else {
-                window.apps = JSON.parse(localStorage.getItem("apps"));
+                window.user = JSON.parse(localStorage.getItem("user"));
             }
-
-            let settings = {
-                "url": `${apiUrl}/create.php?name=${name}`,
-                "method": "POST",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "data": JSON.stringify(window.apps),
-            };
-
-            $.ajax(settings).done(function (response, data) {
-                resolve(response);
-            });
         }
+
+        let settings = {
+            "url": `${apiUrl}/create.php?name=${name}`,
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "data": JSON.stringify(window.user),
+        };
+
+        $.ajax(settings).done(async function (response, data) {
+            return resolve(response);
+        })
+        resolve(true);
     });
 }
 
-async function getLayoutShare(code) {
+async function getLayoutShare(id) {
     return new Promise(async (resolve, reject) => {
+        let code = id;
+
         let settings = {
             "url": `${apiUrl}/get.php?name=${code}`,
             "method": "GET",
@@ -47,18 +52,30 @@ async function getLayoutShare(code) {
                 timer: 2000,
                 allowOutsideClick: true,
             });
+            resolve(response);
         });
     });
 }
 
-function createShareKey(length) {
-    let result = '';
-    const characters = 'ABCDEFGHKMNOPQRSTUVWXYZabcdefghmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        counter += 1;
-    }
-    return result;
+function submitFeedBack(feedback) {
+    $('#feedBackModal').modal('hide');
+
+    return new Promise(async (resolve, reject) => {
+        const name = window.appId;
+
+        let settings = {
+            "url": `${apiUrl}/feedback.php?name=${name}`,
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "data": feedback,
+        };
+
+        $.ajax(settings).done(async function (response, data) {
+            return resolve(response);
+        })
+        resolve(true);
+    });
 }

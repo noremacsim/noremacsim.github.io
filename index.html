@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="130x130" href="/assets/images/largeicon.png">
     <link rel="icon" type="image/png" sizes="80x80" href="/assets/images/icon.png">
     <link rel="icon" type="image/png" sizes="130x130" href="/assets/images/largeicon.png">
-    <link rel="manifest" href="manifest.json">
+    <!--    <link rel="manifest" href="manifest.json">-->
     <meta name="keywords" content="Browser Apps, Apps, WebBased, Tesla Browser, Tesla">
     <meta name="description" content="Web Based Browser Apps, Run all these applications directly form your car or device browser. initially made for Tesla Vehicles">
     <meta name="author" content="noremacsim">
@@ -32,73 +32,54 @@
 </head>
 <body>
 
-<div class="appHeader container apptabs">
-    <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-            <a class="nav-link tablinks active" aria-current="page" id="tabStream" href="#stream" onclick="openTab(event, 'stream')">Stream</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link tablinks" href="#game" id="tabGame" onclick="openTab(event, 'game')">Game</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link tablinks" href="#browse" id="tabBrowse" onclick="openTab(event, 'browse')">Browse</a>
-        </li>
-    </ul>
+<!-- Top Buttons -->
+<div class="topNav">
+    <i class="fa fa-cog settingsButton" aria-hidden="true" data-mdb-toggle="modal" data-mdb-target="#helpModal"></i>
+    <i class="fas fa-up-right-and-down-left-from-center fullscreenButton" onclick="navigate('https://youtube.com/redirect?q=https://noremacsim.github.io', 'FullScreen')"></i>
 </div>
 
-<div class="appHeader container canceltabs">
-    <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-            <a class="nav-link tablinks deleteAppTitle" href="#deleteappheading">Deleting Apps</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link tablinks deleteAppCancel" href="#deleteappcancel" onclick="cancelDeletes()">Done</a>
-        </li>
-    </ul>
+
+<!-- Main App -->
+<div class="homeContainer container" style="margin-top: 10rem">
+    <div class="header">
+        <img src="/assets/images/largeicon.png" class="rounded-circle mb-3 profileImage headerProfile userProfileImageSrc" style="width: 150px; border: 3px solid white;" alt="Avatar" />
+        <h5 class="mb-2 headerProfile"><strong>Welcome to SimFlix</strong></h5>
+    </div>
+    <div class="appContainer container" style="align-items: center;justify-content: center;display: flex;margin: 0;padding: 0;">
+        <div id="userHTML">
+        </div>
+    </div>
 </div>
 
-<div class="tabsContent">
-
-    <div id="stream" class="tabcontent">
-        <div class="apps container">
-            <div class="d-flex justify-content-start flex-wrap mb-3" id="streamHTML">
-            </div>
-        </div>
-    </div>
-
-    <div id="game" class="tabcontent">
-        <div class="apps container">
-            <div class="d-flex flex-row justify-content-start flex-wrap mb-3" id="gameHTML">
-            </div>
-        </div>
-    </div>
-
-    <div id="browse" class="tabcontent">
-        <div class="apps container">
-            <div class="d-flex flex-row justify-content-start flex-wrap mb-3" id="browseHTML">
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searcgModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<!-- FEEDBACK MODEL -->
+<div class="modal fade" id="feedBackModal" tabindex="-1" aria-labelledby="newAppModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 570px !important;">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Custom Site</h5>
+                <h5 class="modal-title">FeedBack</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="input-group">
-                    <input type="url" id="customSite" class="form-control rounded" placeholder="http(s)://website.com" aria-label="Website" aria-describedby="search-addon" />
-                    <button type="button" class="btn btn-outline-primary" onclick="navigate($('#customSite').val(), $('#customSite').val())">Go</button>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="modal-body">
+
+                        <span> Hey, You'll only see this once but is there any feedback you would like to leave? Does the application work as expected. Is it easy to navigate. any suggestion?</span>
+
+                        <div class="form-group mb-2 mt-3">
+                            <textarea id="feedbackBox" class="form-control textarea" placeholder="Feedback" rows="7" style="height: 100px !important;"></textarea>
+                        </div>
+
+                        <button type="button" class="btn btn-primary btn-lg btn-block mt-3" onclick="submitFeedBack($('#feedbackBox').val())">Submit Feedback</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+
+<!-- NEW APP MODEL -->
 <div class="modal fade" id="newAppModal" tabindex="-1" aria-labelledby="newAppModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="max-width: 570px !important;">
         <div class="modal-content">
@@ -107,8 +88,13 @@
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div class="accordion" id="newAppAccordian">
+            <div class="card">
+                <div class="card-body" style="background: #cce5ff;color: #004085;text-align: center;">
+                    <span>Touch and Hold down an app on your homescreen to enable delete mode</span>
+                </div>
+            </div>
 
+            <div class="accordion" id="newAppAccordian">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingAdd">
                         <button
@@ -125,6 +111,15 @@
                     <div id="collapseAdd" class="accordion-collapse collapse show" aria-labelledby="headingAdd" data-mdb-parent="#newAppAccordian">
                         <div class="accordion-body">
                             <div class="apps container" style="max-height: 400px;overflow: scroll;overflow-x: hidden;">
+                                <!--                                <div class="input-group mb-3 appsSearch">-->
+                                <!--                                    <span class="input-group-text border-0" id="basic-addon3">Search</span>-->
+                                <!--                                    <input-->
+                                <!--                                            type="text"-->
+                                <!--                                            class="form-control rounded"-->
+                                <!--                                            id="basic-url3"-->
+                                <!--                                            aria-describedby="basic-addon3"-->
+                                <!--                                    />-->
+                                <!--                                </div>-->
                                 <div class="d-flex justify-content-center flex-wrap mb-3" id="newAppList">
                                 </div>
                             </div>
@@ -177,17 +172,7 @@
     </div>
 </div>
 
-<footer class="footer">
-    <div class="fullscreen" onclick="navigate('https://youtube.com/redirect?q=https://noremacsim.github.io', 'FullScreen')">
-        <span class="fs-5 text" style="padding-right: 5px">Go FullScreen</span>
-        <i class="fas fa-up-right-and-down-left-from-center"></i>
-    </div>
-
-    <div class="help" data-mdb-toggle="modal" data-mdb-target="#helpModal">
-        <i class="fa fa-question-circle"></i>
-    </div>
-</footer>
-
+<!-- SETTINGS MODEL -->
 <div class="modal fade bd-example-modal-lg" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -197,53 +182,47 @@
             </div>
 
             <div class="card">
-                <div class="card-body" style="background: #f2f2f2">
-                    <h5 style="color: black;font-weight: bold;text-align: center;">Share Or Import AppList ID</h5>
-                    <div class="form-group mb-2">
-                        <div class="ui-textinput ui-corner-all ui-shadow-inset ui-textinput-text ui-body-inherit">
-                            <input type="url" id="appCode" class="form-control rounded" placeholder="Code" aria-label="Code" style="display:none; width: 200px; margin: auto;text-align: center;">
-                        </div>
-
-                        <div class="input-group mb-3" id="importInput" style="display: none; width: 250px; margin: auto;text-align: center;">
-                            <input
-                                    id="importCodeId"
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Code"
-                                    aria-label="Code"
-                                    aria-describedby="button-addon2"
-                            />
-                            <button class="btn btn-outline-Success" onclick="importAppList($('#importCodeId').val())" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                                Go
-                            </button>
-                        </div>
-
+                <div class="card-body">
+                    <div class="profile-image" style="margin: auto;display: block;height: 100px;width: 100px;position: relative;">
+                        <img src="/assets/images/largeicon.png" class="rounded-circle mb-3 userProfileImageSrc" style="width: 100px; height: 100px;margin: auto;display: block;" alt="Avatar" />
+                        <i class="fa-solid fa-camera" onclick="$('#uploadFileImage').trigger('click');" style="position: absolute;bottom: 0;right: 0;font-size: 25px;background: white;padding: 5px;border-radius: 25px;color: #3b71ca;border: 1px solid black;"></i>
+                        <input id="uploadFileImage" type="file" onchange="saveBaseUrl()" style="display: none">
                     </div>
-                    <div style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center;">
-                        <button id="generateCode" type="button" class="btn btn-primary btn-rounded">Generate</button>
-                        <button id="importCode" type="button" class="btn btn-secondary btn-rounded">Import</button>
-                    </div>
-
-                    <p style="text-align: center;padding-top: 10px;margin-bottom: 0;">
-                        An AppList ID is an easy way to share your custom list with Devices and People.
-                        Simply Generate an ID then use this ID in the import to load your List.
-                    </p>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-body">
-                    <h5>Recent Release (v2)</h5>
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-success">Add Predefined apps or Create new from the add app button</li>
-                        <li class="list-group-item list-group-item-success">Add Logo to your custom url/apps</li>
-                        <li class="list-group-item list-group-item-info">Usability Improvements</li>
-                        <li class="list-group-item list-group-item-info">Share Custom List Improvements</li>
-                        <li class="list-group-item list-group-item-info">AppList ID's dont expire</li>
-                    </ul>
+                <div class="card-body" style="background: #f2f2f2">
+                    <h5 style="color: black;font-weight: bold;text-align: center;">Your SimFlix ID</h5>
+                    <div class="form-group mb-2">
+                        <div class="ui-textinput ui-corner-all ui-shadow-inset ui-textinput-text ui-body-inherit">
+                            <div class="ui-textinput ui-corner-all ui-shadow-inset ui-textinput-text ui-body-inherit currentAppIdCode">
+                                <input value="" type="text" class="form-control rounded appId" placeholder="Code" aria-label="Code" style="    width: 165px;margin: auto;text-align: center;background: transparent;background: #54b4d3;border: none;font-size: 22px;font-weight: bold;border-radius: 25px !important;letter-spacing: 3px;color: white;box-shadow: 0 4px 9px -4px #54b4d3;margin-top: 16px;" readonly="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3" id="importInput" style="display: none; width: 250px; margin: auto;text-align: center;">
+                        <input
+                                id="importCodeId"
+                                type="text"
+                                class="form-control"
+                                placeholder="Code"
+                                aria-label="Code"
+                                aria-describedby="button-addon2"
+                        />
+                        <button class="btn btn-outline-Success" onclick="importAppList($('#importCodeId').val())" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                            Go
+                        </button>
+                    </div>
+
+                    <div style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center;padding-top:15px">
+                        <button id="importCode" type="button" class="btn btn-primary btn-rounded" style="margin-right: 12px;">import</button>
+                        <button id="cancelImport" type="button" class="btn btn-warning btn-rounded" style="margin-right: 12px; display: none;">cancel</button>
+                        <!--                        <button id="shareCode" type="button" class="btn btn-success btn-rounded">Share</button>-->
+                    </div>
                 </div>
             </div>
-
 
             <div class="accordion" id="accordionExample">
 
@@ -257,23 +236,37 @@
                                 aria-expanded="false"
                                 aria-controls="collapseTwo"
                         >
-                            Passed Releases
+                            Style Settings
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-mdb-parent="#accordionExample">
                         <div class="accordion-body">
-                            <h5>Version v1.5</h5>
-                            <ul class="list-group">
-                                <li class="list-group-item list-group-item-success">You Can Edit And Manage Your Lists Accross Devices</li>
-                                <li class="list-group-item list-group-item-success">Generate A Unique AppList ID to Import on Any Device</li>
-                                <li class="list-group-item list-group-item-info">Usability Improvements</li>
-                            </ul>
-                            <h5>Version v1.1</h5>
-                            <ul class="list-group">
-                                <li class="list-group-item list-group-item-info">You can Now Add and Delete Apps. All your changes are saved locally</li>
-                                <li class="list-group-item list-group-item-info">You can now add your own custom apps by using the plus icon at then end of the list</li>
-                                <li class="list-group-item list-group-item-info">You can delete apps from your list by holding the app down to show the delete icon</li>
-                            </ul>
+
+                            <label class="form-label">Background</label>
+                            <div class="input-group mb-3">
+                                <div class="btn-group">
+                                    <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked />
+                                    <label class="btn btn-secondary" for="option1">Colour</label>
+
+                                    <!--                                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />-->
+                                    <!--                                    <label class="btn btn-secondary" for="option2">Image</label>-->
+                                </div>
+                            </div>
+                            <input type="color" id="color" name="color" value="black" style="width: 100%;margin-bottom: 25px;">
+
+                            <label class="form-label">Icon Styles</label>
+                            <div class="input-group mb-3">
+                                <div class="btn-group imageButtons" style="box-shadow: none;">
+                                    <input type="radio" onclick="updateAppStyle('circle')" class="btn-check" name="iconstyle" id="circle" autocomplete="off" checked />
+                                    <label class="btn btn-secondary ImageStyleChooseLabel" style="border-radius: 50%;" for="circle"></label>
+
+                                    <input type="radio" onclick="updateAppStyle('rounded')" class="btn-check" name="iconstyle" id="rounded" autocomplete="off" />
+                                    <label class="btn btn-secondary ImageStyleChooseLabel" style="border-radius: 15px" for="rounded"></label>
+
+                                    <input type="radio" onclick="updateAppStyle('sqaure')" class="btn-check" name="iconstyle" id="sqaure" autocomplete="off" />
+                                    <label class="btn btn-secondary ImageStyleChooseLabel" style="border-radius: 0" for="sqaure"></label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -305,6 +298,13 @@
         </div>
     </div>
 </div>
+
+<!-- footer -->
+<footer class="footer">
+    <a href="#feedback" onclick="$('#feedBackModal').modal('show')" style="margin-left: 10px;color: grey;"><span>Feedback</span></a>
+    <a href="https://github.com/noremacsim/noremacsim.github.io/issues" style="margin-left: 10px;color: grey;"><span>Report Issue</span></a>
+    <a href="https://github.com/noremacsim" style="margin-left: 10px;color: grey;"><span>Github</span></a>
+</footer>
 
 <script>
     if ('serviceWorker' in navigator) {
