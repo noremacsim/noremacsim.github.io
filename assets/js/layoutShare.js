@@ -52,8 +52,14 @@ async function getLayoutShare(id) {
                 timer: 2000,
                 allowOutsideClick: true,
             });
-            resolve(response);
+            reject('error');
         });
+    });
+}
+
+async function getGeneratedIDs() {
+    $.getJSON('https://simflix.online/generatedCodes.json', function(data) {
+        console.log(data);
     });
 }
 

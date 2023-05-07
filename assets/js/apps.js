@@ -3,18 +3,6 @@
 window.fullscreen = false;
 window.version = 'v3';
 window.newversion_a = localStorage.getItem(`${window.version}-pop`);
-
-window.appId = '';
-window.user = {
-        'apps': [],
-        'settings': {
-                'profileImage': '',
-                'background': '',
-                'iconStyle': '',
-                'visit': 0,
-        },
-};
-
 window.removeApps = [];
 window.maxApps = 100;
 
