@@ -281,3 +281,11 @@ body {
 .textarea {
     height: 100px !important;
 }
+
+.ui-loader {
+    display: none;
+}
+
+.ui-page {
+    min-height: unset !important;
+}

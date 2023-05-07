@@ -52,7 +52,6 @@ async function getLayoutShare(id) {
                 timer: 2000,
                 allowOutsideClick: true,
             });
-            location.reload();
             resolve(response);
         });
     });
