@@ -17,6 +17,12 @@ html {
 body {
     font:16px/1.2 'Poppins', sans-serif;
     background: white;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .appHeader {
@@ -211,6 +217,7 @@ body {
 
 #userHTML {
     margin-top: 50px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
