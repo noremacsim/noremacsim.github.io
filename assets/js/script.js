@@ -53,7 +53,7 @@ async function getAppID() {
 async function createAppID() {
 
     return new Promise(async (resolve, reject) => {
-        await createShareKey(7).then(async appId => {
+        await createLayoutShareId().then(async appId => {
             window.user = {
                 'apps': starterApps,
                 'settings': {
@@ -73,22 +73,6 @@ async function createAppID() {
             });
         });
         resolve(true);
-
-    });
-
-}
-
-async function createShareKey(length) {
-    return new Promise(async (resolve, reject) => {
-        let result = '';
-        const characters = 'ABCDEFGHKMNOPQRSTUVWXYZabcdefghmnopqrstuvwxyz0123456789';
-        const charactersLength = characters.length;
-        let counter = 0;
-        while (counter < length) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-            counter += 1;
-        }
-        resolve(result);
     });
 }
 
@@ -370,8 +354,9 @@ $(document).tap(function(e) {
     let item = $(".deleteApp");
     if (!item.is(e.target) && item.has(e.target).length === 0)
     {
-        $('.deleteApp').hide(200);
-        cancelDeletes();
+        if ($(".deleteApp").is(":visible")) {
+            cancelDeletes();
+        }
     }
 });
 

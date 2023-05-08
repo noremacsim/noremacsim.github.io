@@ -1,7 +1,7 @@
 <!--    Title, Link, Fullscreen (True/false), ImageSrc, Works in Drive (true, false)-->
 
 window.fullscreen = false;
-window.version = 'v3';
+window.version = '1.0.1';
 window.newversion_a = localStorage.getItem(`${window.version}-pop`);
 window.removeApps = [];
 window.maxApps = 100;

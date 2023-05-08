@@ -57,6 +57,19 @@ async function getLayoutShare(id) {
     });
 }
 
+async function createLayoutShareId() {
+    return new Promise(async (resolve, reject) => {
+        let settings = {
+            "url": `${apiUrl}/new.php`,
+            "method": "GET",
+        };
+
+        $.ajax(settings).done(function (response, data) {
+            resolve(response);
+        })
+    });
+}
+
 async function getGeneratedIDs() {
     $.getJSON('https://simflix.online/generatedCodes.json', function(data) {
         console.log(data);
@@ -80,7 +93,7 @@ function submitFeedBack(feedback) {
         };
 
         $.ajax(settings).done(async function (response, data) {
-            return resolve(response);
+            resolve(response);
         })
         resolve(true);
     });
