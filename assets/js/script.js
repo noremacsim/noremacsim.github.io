@@ -16,6 +16,9 @@ async function startApp() {
 
     await getLayoutShare(appId).then(async data => {
         window.user = data;
+        if (window.user.settings.feedbacksubmit == null || window.user.settings.feedbacksubmit === false) {
+            window.user.settings.feedbacksubmit = false;
+        }
         localStorage.setItem("user", JSON.stringify(window.user));
     });
 
@@ -28,7 +31,7 @@ async function startApp() {
 
     if (window.user.settings.visit >= 3) {
         if (window.user.settings.feedbacksubmit == null || window.user.settings.feedbacksubmit === false) {
-            window.user.settings.feedbacksubmit = false;
+            window.user.settings.feedbacksubmit = true;
             $('#feedBackModal').modal('show');
         }
     }

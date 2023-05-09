@@ -79,6 +79,7 @@ async function getGeneratedIDs() {
 function submitFeedBack(feedback, rating) {
     $('#feedBackModal').modal('hide');
     window.user.settings.feedbacksubmit = true;
+    localStorage.setItem("user", JSON.stringify(window.user));
 
     return new Promise(async (resolve, reject) => {
         const name = window.appId;
@@ -94,9 +95,10 @@ function submitFeedBack(feedback, rating) {
         };
 
         $.ajax(settings).done(async function (response, data) {
-            addToStorage();
             resolve(response);
         })
+
+        addToStorage();
         resolve(true);
     });
 }
