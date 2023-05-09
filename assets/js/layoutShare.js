@@ -62,6 +62,9 @@ async function createLayoutShareId() {
         let settings = {
             "url": `${apiUrl}/new.php`,
             "method": "GET",
+            "headers": {
+                "Content-Type": "application/json"
+            },
         };
 
         $.ajax(settings).done(function (response, data) {
