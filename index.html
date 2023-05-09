@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="130x130" href="/assets/images/largeicon.png">
     <link rel="icon" type="image/png" sizes="80x80" href="/assets/images/icon.png">
     <link rel="icon" type="image/png" sizes="130x130" href="/assets/images/largeicon.png">
-<!--    <link rel="manifest" href="manifest.json">-->
+    <link rel="manifest" href="manifest.json">
     <meta name="keywords" content="Browser Apps, Apps, WebBased, Tesla Browser, Tesla">
     <meta name="description" content="Web Based Browser Apps, Run all these applications directly form your car or device browser. initially made for Tesla Vehicles">
     <meta name="author" content="noremacsim">
@@ -42,16 +42,48 @@
 
 <!-- Main App -->
 <div class="homeContainer container" style="margin-top: 10rem">
+
     <div class="header">
-        <img src="/assets/images/largeicon.png" class="rounded-circle mb-3 profileImage headerProfile userProfileImageSrc" style="width: 150px; border: 3px solid white;" alt="Avatar" />
-        <h5 class="mb-2 headerProfile"><strong>Welcome to SimFlix</strong></h5>
+        <div class="loading load avatar" style="width: 150px; height: 150px; border: 3px solid white;border-radius: 50%;margin: auto;"></div>
+        <img src="/assets/images/largeicon.png" class="loaded rounded-circle mb-3 profileImage headerProfile userProfileImageSrc" style="width: 150px; height: 150px; border: 3px solid white;" alt="Avatar" />
+        <div class="loading load title" style="height: 25px; margin-top: 10px;"></div>
+        <h5 class="loaded mb-2 headerProfile" style="margin-top: 10px;"><strong>Welcome to SimFlix</strong></h5>
     </div>
+
     <div class="appContainer container" style="align-items: center;justify-content: center;display: flex;margin: 0;padding: 0;">
-        <div id="userHTML">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+
+        <div id="userHTMLLoading" class="loading">
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
             </div>
         </div>
+
+        <div id="userHTML" class="loaded"></div>
+
     </div>
 </div>
 
@@ -288,15 +320,11 @@
                             <label class="form-label">Background</label>
                             <div class="input-group mb-3">
                                 <div class="btn-group">
-                                    <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked />
+                                    <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" onclick="chooseBackgroundColor()" checked />
                                     <label class="btn btn-secondary" for="option1">Colour</label>
-
-                                    <!--                                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />-->
-                                    <!--                                    <label class="btn btn-secondary" for="option2">Image</label>-->
                                 </div>
                             </div>
                             <input type="color" id="color" name="color" value="black" style="width: 100%;margin-bottom: 25px;">
-
                             <label class="form-label">Icon Styles</label>
                             <div class="input-group mb-3">
                                 <div class="btn-group imageButtons" style="box-shadow: none;">

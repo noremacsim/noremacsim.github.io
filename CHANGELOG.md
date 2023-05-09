@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.3 (09/05/2023)
+
+- Improved api
+- added skeleton loaders
+- minor bug fixes
+
 ## v1.0.1 (08/05/2023)
 
 ### Enhancement:

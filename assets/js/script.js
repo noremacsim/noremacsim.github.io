@@ -29,6 +29,9 @@ async function startApp() {
 
     updateStyles();
 
+    $('.loaded').show();
+    $('.loading').hide();
+
     if (window.user.settings.visit >= 3) {
         if (window.user.settings.feedbacksubmit == null || window.user.settings.feedbacksubmit === false) {
             window.user.settings.feedbacksubmit = true;
@@ -450,4 +453,38 @@ function saveBaseUrl ()  {
         addToStorage();
     };
     reader.readAsDataURL(file);
+}
+
+function saveBackgroundImage() {
+    var file = document.querySelector('.backgroundImageUpload')['files'][0];
+    var reader = new FileReader();
+    var baseString;
+    reader.onloadend = function () {
+        baseString = reader.result;
+        window.user.settings.background = `url('${baseString}')`;
+        $('#currentBackgroundImage').show();
+        $('#currentBackgroundImage').attr('src', baseString);
+        addToStorage();
+    };
+    reader.readAsDataURL(file);
+}
+
+function chooseBackgroundImage() {
+    $('#color').hide();
+    $('#backgroundimagecontainer').show();
+
+    let background = window.user.settings.background;
+    let parts = background.split('"');
+
+    if (parts.length > 1) {
+        if (parts[1].includes('base64')) {
+            $('#currentBackgroundImage').show();
+            $('#currentBackgroundImage').attr('src', parts[1]);
+        }
+    }
+}
+
+function chooseBackgroundColor() {
+    $('#color').show();
+    $('#backgroundimagecontainer').hide();
 }
