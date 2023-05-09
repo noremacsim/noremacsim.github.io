@@ -57,27 +57,66 @@
 
 <!-- FEEDBACK MODEL -->
 <div class="modal fade" id="feedBackModal" tabindex="-1" aria-labelledby="newAppModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="max-width: 570px !important;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">FeedBack</h5>
-                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
+    <div class="modal-dialog fullscreenFeedbackModal">
+        <div class="modal-content" style="height: 100%; border-radius: 0px;">
                     <div class="modal-body">
+                        <input type="hidden" id="feedbackRating">
 
-                        <span> Hey, You'll only see this once but is there any feedback you would like to leave? Does the application work as expected. Is it easy to navigate. any suggestion?</span>
+                        <div class="emoji-app" id="emojiRate">
+                            <h1 style="color: black;font-weight: bold;font-size: 2rem;">Feedback</h1>
+                            <p>How was your experience?</p>
 
-                        <div class="form-group mb-2 mt-3">
-                            <textarea id="feedbackBox" class="form-control textarea" placeholder="Feedback" rows="7" style="height: 100px !important;"></textarea>
+                            <div class="container">
+                                <div class="item">
+                                    <label>
+                                        <input class="radio" type="radio" name="feedback" value="0">
+                                        <span onclick="submitRating(1)">🤬</span>
+                                    </label>
+                                </div>
+
+                                <div class="item">
+                                    <label>
+                                        <input class="radio" type="radio" name="feedback" value="1">
+                                        <span onclick="submitRating(2)">🙁</span>
+                                    </label>
+                                </div>
+
+                                <div class="item">
+                                    <label>
+                                        <input class="radio" type="radio" name="feedback" value="2">
+                                        <span onclick="submitRating(3)">😶</span>
+                                    </label>
+                                </div>
+
+                                <div class="item">
+                                    <label>
+                                        <input class="radio" type="radio" name="feedback" value="3">
+                                        <span onclick="submitRating(4)">😁</span>
+                                    </label>
+                                </div>
+
+                                <div class="item">
+                                    <label>
+                                        <input class="radio" type="radio" name="feedback" value="4">
+                                        <span onclick="submitRating(5)">😍</span>
+                                    </label>
+                                </div>
+
+                            </div>
                         </div>
 
-                        <button type="button" class="btn btn-primary btn-lg btn-block mt-3" onclick="submitFeedBack($('#feedbackBox').val())">Submit Feedback</button>
+                        <div class="emoji-app" id="feedbackComment" style="display: none;">
+                            <h1 style="color: black;font-weight: bold;font-size: 2rem;">Feedback</h1>
+                            <p>Any Comments on your experience?</p>
+
+                            <div class="container">
+                                <div class="form-group mb-2 mt-3">
+                                    <textarea id="feedbackBox" class="form-control textarea" placeholder="Feedback" rows="7" cols="80" style="height: 100px !important;"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block mt-3" onclick="submitFeedBack($('#feedbackBox').val(), $('#feedbackRating').val())">Submit Feedback</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

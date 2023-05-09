@@ -26,9 +26,18 @@ async function startApp() {
 
     updateStyles();
 
-    if (window.user.settings.visit === 4) {
-        $('#feedBackModal').modal('show');
+    if (window.user.settings.visit >= 3) {
+        if (window.user.settings.feedbacksubmit == null || window.user.settings.feedbacksubmit === false) {
+            window.user.settings.feedbacksubmit = false;
+            $('#feedBackModal').modal('show');
+        }
     }
+}
+
+function submitRating(rating) {
+    $('#feedbackRating').val(rating);
+    $('#emojiRate').hide();
+    $('#feedbackComment').show();
 }
 
 async function getAppID() {
@@ -61,6 +70,7 @@ async function createAppID() {
                     'background': '',
                     'iconStyle': '',
                     'visit': 0,
+                    'feedbacksubmit': false,
                 },
             };
 

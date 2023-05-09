@@ -76,14 +76,15 @@ async function getGeneratedIDs() {
     });
 }
 
-function submitFeedBack(feedback) {
+function submitFeedBack(feedback, rating) {
     $('#feedBackModal').modal('hide');
+    window.user.settings.feedbacksubmit = true;
 
     return new Promise(async (resolve, reject) => {
         const name = window.appId;
 
         let settings = {
-            "url": `${apiUrl}/feedback.php?name=${name}`,
+            "url": `${apiUrl}/feedback.php?name=${name}&rating=${rating}`,
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -93,6 +94,7 @@ function submitFeedBack(feedback) {
         };
 
         $.ajax(settings).done(async function (response, data) {
+            addToStorage();
             resolve(response);
         })
         resolve(true);

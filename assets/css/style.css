@@ -296,3 +296,54 @@ body {
 .ui-page {
     min-height: unset !important;
 }
+
+.fullscreenFeedbackModal {
+    max-width: unset !important;
+    max-height: unset !important;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.emoji-app {
+    width: 90%;
+    max-width: 500px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.emoji-app .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.emoji-app .item {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+.emoji-app .radio {
+    display: none;
+}
+.emoji-app .radio ~ span {
+    font-size: 3rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.emoji-app .radio:checked ~ span {
+    font-size: 4rem;
+}
+
