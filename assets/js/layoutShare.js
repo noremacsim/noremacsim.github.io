@@ -13,7 +13,7 @@ async function saveLayout() {
         }
 
         let settings = {
-            "url": `${apiUrl}/create.php?name=${name}`,
+            "url": `${apiUrl}/user/save?name=${name}`,
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -34,7 +34,7 @@ async function getLayoutShare(id) {
         let code = id;
 
         let settings = {
-            "url": `${apiUrl}/get.php?name=${code}`,
+            "url": `${apiUrl}/user/get?name=${code}`,
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -43,7 +43,7 @@ async function getLayoutShare(id) {
         };
 
         $.ajax(settings).done(function (response, data) {
-            resolve(response);
+            resolve(response.data);
         }).catch(error => {
             Swal.fire({
                 icon: 'error',
@@ -60,12 +60,12 @@ async function getLayoutShare(id) {
 async function createLayoutShareId() {
     return new Promise(async (resolve, reject) => {
         let settings = {
-            "url": `${apiUrl}/new.php`,
+            "url": `${apiUrl}/user/create`,
             "method": "GET",
         };
 
         $.ajax(settings).done(function (response, data) {
-            resolve(response);
+            resolve(response.data);
         })
     });
 }
