@@ -85,7 +85,7 @@ function submitFeedBack(feedback, rating) {
         const name = window.appId;
 
         let settings = {
-            "url": `${apiUrl}/feedback.php?name=${name}&rating=${rating}`,
+            "url": `${apiUrl}/user/feedback?name=${name}&rating=${rating}`,
             "method": "POST",
             "timeout": 0,
             "headers": {
