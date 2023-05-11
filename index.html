@@ -10,14 +10,14 @@
         gtag('config', 'G-PX2W43GX0C');
     </script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noremac - Browser Apps</title>
     <meta name="theme-color" content="#3b71ca">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" sizes="130x130" href="/assets/images/largeicon.png">
     <link rel="icon" type="image/png" sizes="80x80" href="/assets/images/icon.png">
     <link rel="icon" type="image/png" sizes="130x130" href="/assets/images/largeicon.png">
-    <!--    <link rel="manifest" href="manifest.json">-->
+    <link rel="manifest" href="manifest.json">
     <meta name="keywords" content="Browser Apps, Apps, WebBased, Tesla Browser, Tesla">
     <meta name="description" content="Web Based Browser Apps, Run all these applications directly form your car or device browser. initially made for Tesla Vehicles">
     <meta name="author" content="noremacsim">
@@ -220,15 +220,15 @@
                             <div class="modal-body">
 
                                 <div class="form-group mb-2">
-                                    <label>App Name</label>
+                                    <label for="newSiteTitle">App Name</label>
                                     <input type="url" id="newSiteTitle" class="form-control rounded" placeholder="Title" aria-label="Website" aria-describedby="search-addon" />
                                 </div>
                                 <div class="form-group mb-2">
-                                    <label>URL</label>
+                                    <label for="newSiteUrl">URL</label>
                                     <input type="url" id="newSiteUrl" class="form-control rounded" placeholder="http(s)://website.com" aria-label="Website" aria-describedby="search-addon" />
                                 </div>
                                 <div class="form-group mb-2">
-                                    <label>Image Url</label>
+                                    <label for="newSiteImageUrl">Image Url</label>
                                     <input type="url" id="newSiteImageUrl" class="form-control rounded" placeholder="http://google.com/image/example.png" aria-label="image url" aria-describedby="search-addon" />
                                 </div>
                                 <input id="newSiteType" type="hidden">
@@ -272,7 +272,7 @@
                     <div class="form-group mb-2">
                         <div class="ui-textinput ui-corner-all ui-shadow-inset ui-textinput-text ui-body-inherit">
                             <div class="ui-textinput ui-corner-all ui-shadow-inset ui-textinput-text ui-body-inherit currentAppIdCode">
-                                <input value="" type="text" class="form-control rounded appId" placeholder="Code" aria-label="Code" style="    width: 210px;margin: auto;text-align: center;background: transparent;background: #54b4d3;border: none;font-size: 22px;font-weight: bold;border-radius: 25px !important;letter-spacing: 3px;color: white;box-shadow: 0 4px 9px -4px #54b4d3;margin-top: 16px;" readonly="">
+                                <input value="" type="text" class="form-control rounded appId" placeholder="Code" aria-label="Code" id="appid" name="appId" style="width: 210px;margin: auto;text-align: center;background: transparent;background: #54b4d3;border: none;font-size: 22px;font-weight: bold;border-radius: 25px !important;letter-spacing: 3px;color: white;box-shadow: 0 4px 9px -4px #54b4d3;margin-top: 16px;" readonly="">
                             </div>
                         </div>
                     </div>
@@ -330,10 +330,10 @@
 
 <!-- footer -->
 <footer class="footer">
-    <a href="#feedback" onclick="$('#feedBackModal').modal('show')" style="margin-left: 10px;color: grey;"><span>Feedback</span></a>
-    <a href="https://github.com/noremacsim/noremacsim.github.io/issues" style="margin-left: 10px;color: grey;"><span>Report Issue</span></a>
-    <a href="https://github.com/noremacsim" style="margin-left: 10px;color: grey;"><span>Github</span></a>
-    <a href="https://patreon.com/SimFlix" style="margin-left: 10px;color: grey;">Donate</a>
+    <a href="#feedback" onclick="$('#feedBackModal').modal('show')" style="margin-left: 10px;color: black;"><span>Feedback</span></a>
+    <a href="https://github.com/noremacsim/noremacsim.github.io/issues" style="margin-left: 10px;color: black;"><span>Report Issue</span></a>
+    <a href="https://github.com/noremacsim" style="margin-left: 10px;color: black;"><span>Github</span></a>
+    <a href="https://patreon.com/SimFlix" style="margin-left: 10px;color: black;">Donate</a>
 </footer>
 
 <script>
