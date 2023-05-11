@@ -9,35 +9,27 @@ async function startApp() {
 
     if (appId === '') {
         await createAppID()
+
+        for (const starterApp of starterApps) {
+            await saveCustom(starterApp[0], starterApp[1], starterApp[3]);
+        }
+
         appId = window.appId;
     }
 
     await delay(1000);
 
     await getLayoutShare(appId).then(async data => {
-        window.user = data;
-        if (window.user.settings.feedbacksubmit == null || window.user.settings.feedbacksubmit === false) {
-            window.user.settings.feedbacksubmit = false;
+        buildAppTabs(data['apps']);
+        if (data['visits'] >= 3) {
+            if (data['submittedFeedback'] === false) {
+                $('#feedBackModal').modal('show');
+            }
         }
-        localStorage.setItem("user", JSON.stringify(window.user));
     });
-
-    await getFromStorage().then(async data => {
-        window.user.settings.visit++;
-        await addToStorage();
-    });
-
-    updateStyles();
 
     $('.loaded').show();
     $('.loading').hide();
-
-    if (window.user.settings.visit >= 3) {
-        if (window.user.settings.feedbacksubmit == null || window.user.settings.feedbacksubmit === false) {
-            window.user.settings.feedbacksubmit = true;
-            $('#feedBackModal').modal('show');
-        }
-    }
 }
 
 function submitRating(rating) {
@@ -68,60 +60,28 @@ async function getAppID() {
 async function createAppID() {
 
     return new Promise(async (resolve, reject) => {
-        await createLayoutShareId().then(async appId => {
-            window.user = {
-                'apps': starterApps,
-                'settings': {
-                    'profileImage': '',
-                    'background': '',
-                    'iconStyle': '',
-                    'visit': 0,
-                    'feedbacksubmit': false,
-                },
-            };
-
-            window.appId = appId;
-            localStorage.setItem("appId", appId);
-            await setCookie('appId', appId, 365);
-            localStorage.setItem("user", JSON.stringify(window.user));
-            return await saveLayout().then(async data => {
-                resolve(data);
-            });
+        await createLayoutShareId().then(async data => {
+            window.appId = data.uniqueID;
+            localStorage.setItem("appId", data.uniqueID);
+            await setCookie('appId', data.uniqueID, 365);
         });
         resolve(true);
     });
 }
 
-function buildAllApps() {
-    let index = 0;
-    if (coreApps.length > 0) {
-        for (const element of coreApps) {
-            let appType = element[4];
-            let appTab = $(`#${appType}HTML`);
-            let allTab = $('#allHTML');
-            let block = addBlock(element[0], element[1], element[3], index)
-            appTab.append(block);
-            allTab.append(block);
-            index++;
-        }
-    }
-}
-
-function buildAppTabs() {
+function buildAppTabs(apps) {
     let userApps = $('#userHTML');
-    let index = 0;
 
     $('.appId').val(window.appId);
     userApps.html('');
 
-    if (window.user.apps.length > 0) {
-        for (const element of window.user.apps) {
-            userApps.append(addBlock(element[0], element[1], element[3], index));
-            index++;
+    if (apps.length > 0) {
+        for (const app of apps) {
+            userApps.append(addBlock(app['id'], app['name'], app['image'], app['url']));
         }
     }
 
-    if (window.user.apps.length < window.maxApps) {
+    if (apps.length < window.maxApps) {
         $(`#userHTML`).append(`
                 <div class="d-inline-flex position-relative p-2 newAppModalButton">
                     <div class="newAppIcon rounded-9 userAppStyle">
@@ -130,15 +90,13 @@ function buildAppTabs() {
                 </div>
             `);
     }
-    updateStyles();
-
 }
 
-function addBlock(title, link, image, index) {
+function addBlock(id, name, image, url) {
     return `
-    <div id="${index}-userApp" class="d-inline-flex position-relative p-2 appLink" data-link='${link}' data-title='${title}')">
-        <img class="deleteApp" data-index='${index}' src="https://www.transparentpng.com/thumb/red-cross/dU1a5L-flag-x-mark-clip-art-computer-icons.png">
-        <img class="rounded-9 shadow-4 appsImage userAppStyle" src="${image}" alt="${title}" style="width: 100px; height: 100px;">
+    <div id="${id}-userApp" class="d-inline-flex position-relative p-2 appLink" data-link='${url}' data-title='${name}')">
+        <img class="deleteApp" data-id='${id}' src="https://www.transparentpng.com/thumb/red-cross/dU1a5L-flag-x-mark-clip-art-computer-icons.png">
+        <img class="rounded-9 shadow-4 appsImage userAppStyle" src="${image}" alt="${name}" style="width: 100px; height: 100px;">
     </div>`;
 }
 
@@ -157,53 +115,26 @@ function navigate(link, title) {
     window.location = link;
 }
 
-async function addToStorage() {
-    window.removeApps = [];
-    localStorage.setItem("user", JSON.stringify(window.user));
-    await saveLayout().then(data => {
-        buildAppTabs();
-    });
-}
-
 async function resetData() {
-    await createAppID();
+    await createAppID()
+    for (const starterApp of starterApps) {
+        await saveCustom(starterApp[0], starterApp[1], starterApp[3]);
+    }
     await startApp();
-    location.reload();
-}
-
-async function getFromStorage() {
-
-    return new Promise(async (resolve, reject) => {
-        if ("user" in localStorage) {
-            if (JSON.parse(localStorage.getItem("user")).length < 1) {
-                window.user.apps = starterApps;
-            } else {
-                window.user = await JSON.parse(localStorage.getItem("user"));
-            }
-        } else {
-            window.user.apps = starterApps;
-        }
-        resolve(true);
-    });
 }
 
 async function saveCustom(title, link, imageUrl) {
 
     let image = imageUrl;
-    if (imageUrl == '') {
+    if (imageUrl === '') {
         image = createAppImage(title);
     }
 
-    let app = [title, link, true, image, false];
+    let app = {'name': title, 'url': link, 'image': image};
 
-    await getFromStorage();
-
-    if (typeof window.user.apps == 'null') {
-        window.user.apps = [];
-    }
-
-    window.user.apps.push(app);
-    addToStorage();
+    await addNewApp(app).then(data => {
+        $(addBlock(data['data']['id'], title, image, link)).insertBefore($( ".newAppModalButton" ));
+    });
     $('#newAppModal').modal('hide');
 }
 
@@ -241,11 +172,6 @@ async function cancelDeletes() {
     $('.deleteApp').hide(200);
     $('.apptabs').show(200);
     $('.canceltabs').hide(200);
-    const filtered = window.user.apps.filter((value, index) => {
-        return !window.removeApps.includes(index.toString());
-    })
-    window.user.apps = filtered;
-    addToStorage();
 }
 
 async function importAppList(id) {
@@ -260,12 +186,19 @@ async function importAppList(id) {
             allowOutsideClick: true,
             showConfirmButton: false
         });
-        window.user = data;
+
         window.appId = id;
         localStorage.setItem("appId", id);
         await setCookie('appId', id, 365);
-        addToStorage();
-    })
+
+        buildAppTabs(data['apps']);
+
+        if (data['visits'] >= 3) {
+            if (data['submittedFeedback'] === false) {
+                $('#feedBackModal').modal('show');
+            }
+        }
+    });
 }
 
 function updateexampleLogoImage() {
@@ -325,11 +258,11 @@ $(document.body).on('tap', '.addApp', function(e) {
     saveCustom(title, link, image);
 });
 
-$(document.body).on('tap', '.deleteApp', function(e) {
+$(document.body).on('tap', '.deleteApp', async function (e) {
     e.preventDefault();
-    let index = $(this).attr("data-index");
-    window.removeApps.push(index);
-    $(`#${index}-userApp`).remove();
+    let id = $(this).attr("data-id");
+    await deleteApp(id);
+    $(`#${id}-userApp`).remove();
 });
 
 $(document.body).on('tap', '.newAppModalButton', function(e) {
@@ -410,39 +343,6 @@ function deleteCookie(key) {
     document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }
 
-function updateStyles() {
-    let iconStyle = window.user.settings.iconStyle;
-    let background = window.user.settings.background;
-    let profileImage = window.user.settings.profileImage;
-
-    if (iconStyle === 'circle') {
-        $('.userAppStyle').addClass('appStylesCircle');
-    } else if (iconStyle === 'rounded') {
-        $('.userAppStyle').addClass('appStylesRounded');
-    } else if (iconStyle === 'sqaure') {
-        $('.userAppStyle').addClass('appStyleSqaure');
-    }
-
-    if (background !== '') {
-        $('html').css({'background': background})
-        $('body').css({'background': background})
-    }
-
-    if (profileImage !== '') {
-        $('.userProfileImageSrc').attr("src",profileImage);
-    }
-}
-
-function updateAppStyle(style) {
-    window.user.settings.iconStyle = style;
-    addToStorage();
-}
-
-function updateBackground(color) {
-    window.user.settings.background = color;
-    addToStorage();
-}
-
 function saveBaseUrl ()  {
     var file = document.querySelector('input[type=file]')['files'][0];
     var reader = new FileReader();
@@ -450,7 +350,6 @@ function saveBaseUrl ()  {
     reader.onloadend = function () {
         baseString = reader.result;
         window.user.settings.profileImage = baseString;
-        addToStorage();
     };
     reader.readAsDataURL(file);
 }
@@ -464,7 +363,6 @@ function saveBackgroundImage() {
         window.user.settings.background = `url('${baseString}')`;
         $('#currentBackgroundImage').show();
         $('#currentBackgroundImage').attr('src', baseString);
-        addToStorage();
     };
     reader.readAsDataURL(file);
 }

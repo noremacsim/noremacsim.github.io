@@ -1,28 +1,356 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Site Maintenance</title>
-    <meta charset="utf-8"/>
-    <meta name="robots" content="noindex"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { text-align: center; padding: 20px; font: 20px Helvetica, sans-serif; color: #efe8e8; }
-        @media (min-width: 768px){
-            body{ padding-top: 150px; }
-        }
-        h1 { font-size: 50px; }
-        article { display: block; text-align: left; max-width: 650px; margin: 0 auto; }
-        a { color: #dc8100; text-decoration: none; }
-        a:hover { color: #efe8e8; text-decoration: none; }
-    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PX2W43GX0C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PX2W43GX0C');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Noremac - Browser Apps</title>
+    <meta name="theme-color" content="#725345">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" sizes="130x130" href="/assets/images/largeicon.png">
+    <link rel="icon" type="image/png" sizes="80x80" href="/assets/images/icon.png">
+    <link rel="icon" type="image/png" sizes="130x130" href="/assets/images/largeicon.png">
+    <!--    <link rel="manifest" href="manifest.json">-->
+    <meta name="keywords" content="Browser Apps, Apps, WebBased, Tesla Browser, Tesla">
+    <meta name="description" content="Web Based Browser Apps, Run all these applications directly form your car or device browser. initially made for Tesla Vehicles">
+    <meta name="author" content="noremacsim">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet"/>
+    <!--    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />-->
+    <link href="/assets/css/style.css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body bgcolor="2e2929">
-<article>
-    <h1>We&rsquo;ll be back soon!</h1>
-    <div>
-        <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. we&rsquo;ll be back online shortly!</p>
-        <p>&mdash; SimFlix</p>
+<body>
+
+<!-- Top Buttons -->
+<div class="topNav">
+    <i class="fa fa-cog settingsButton" aria-hidden="true" data-mdb-toggle="modal" data-mdb-target="#helpModal"></i>
+    <i class="fas fa-up-right-and-down-left-from-center fullscreenButton" onclick="navigate('https://youtube.com/redirect?q=https://noremacsim.github.io', 'FullScreen')"></i>
+</div>
+
+
+<!-- Main App -->
+<div class="homeContainer container" style="margin-top: 10rem">
+
+    <div class="header">
+        <div class="loading load avatar" style="width: 150px; height: 150px; border: 3px solid white;border-radius: 50%;margin: auto;"></div>
+        <img src="/assets/images/largeicon.png" class="loaded rounded-circle mb-3 profileImage headerProfile userProfileImageSrc" style="width: 150px; height: 150px; border: 3px solid white;" alt="Avatar" />
+        <div class="loading load title" style="height: 25px; margin-top: 10px;"></div>
+        <h5 class="loaded mb-2 headerProfile" style="margin-top: 10px;"><strong>Welcome to SimFlix</strong></h5>
     </div>
-</article>
+
+    <div class="appContainer container" style="align-items: center;justify-content: center;display: flex;margin: 0;padding: 0;">
+
+        <div id="userHTMLLoading" class="loading">
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+            <div class="d-inline-flex position-relative p-2">
+                <div class="load avatar rounded-9 shadow-4 appsImage userAppStyle" style="width: 100px; height: 100px;"></div>
+            </div>
+        </div>
+
+        <div id="userHTML" class="loaded"></div>
+
+    </div>
+</div>
+
+<!-- FEEDBACK MODEL -->
+<div class="modal fade" id="feedBackModal" tabindex="-1" aria-labelledby="newAppModalLabel" aria-hidden="true">
+    <div class="modal-dialog fullscreenFeedbackModal">
+        <div class="modal-content" style="height: 100%; border-radius: 0px;">
+            <div class="modal-body">
+                <input type="hidden" id="feedbackRating">
+
+                <div class="emoji-app" id="emojiRate">
+                    <h1 style="color: black;font-weight: bold;font-size: 2rem;">Feedback</h1>
+                    <p>How was your experience?</p>
+
+                    <div class="container">
+                        <div class="item">
+                            <label>
+                                <input class="radio" type="radio" name="feedback" value="0">
+                                <span onclick="submitRating(1)">🤬</span>
+                            </label>
+                        </div>
+
+                        <div class="item">
+                            <label>
+                                <input class="radio" type="radio" name="feedback" value="1">
+                                <span onclick="submitRating(2)">🙁</span>
+                            </label>
+                        </div>
+
+                        <div class="item">
+                            <label>
+                                <input class="radio" type="radio" name="feedback" value="2">
+                                <span onclick="submitRating(3)">😶</span>
+                            </label>
+                        </div>
+
+                        <div class="item">
+                            <label>
+                                <input class="radio" type="radio" name="feedback" value="3">
+                                <span onclick="submitRating(4)">😁</span>
+                            </label>
+                        </div>
+
+                        <div class="item">
+                            <label>
+                                <input class="radio" type="radio" name="feedback" value="4">
+                                <span onclick="submitRating(5)">😍</span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="emoji-app" id="feedbackComment" style="display: none;">
+                    <h1 style="color: black;font-weight: bold;font-size: 2rem;">Feedback</h1>
+                    <p>Any Comments on your experience?</p>
+
+                    <div class="container">
+                        <div class="form-group mb-2 mt-3">
+                            <textarea id="feedbackBox" class="form-control textarea" placeholder="Feedback" rows="7" cols="80" style="height: 100px !important;"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-lg btn-block mt-3" onclick="submitFeedBack($('#feedbackBox').val(), $('#feedbackRating').val())">Submit Feedback</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- NEW APP MODEL -->
+<div class="modal fade" id="newAppModal" tabindex="-1" aria-labelledby="newAppModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 570px !important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Site</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="card">
+                <div class="card-body" style="background: #cce5ff;color: #004085;text-align: center;">
+                    <span>Touch and Hold down an app on your homescreen to enable delete mode</span>
+                </div>
+            </div>
+
+            <div class="accordion" id="newAppAccordian">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingAdd">
+                        <button
+                                class="accordion-button"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#collapseAdd"
+                                aria-expanded="false"
+                                aria-controls="collapseAdd"
+                        >
+                            Add App
+                        </button>
+                    </h2>
+                    <div id="collapseAdd" class="accordion-collapse collapse show" aria-labelledby="headingAdd" data-mdb-parent="#newAppAccordian">
+                        <div class="accordion-body">
+                            <div class="apps container" style="max-height: 400px;overflow: scroll;overflow-x: hidden;">
+                                <!--                                <div class="input-group mb-3 appsSearch">-->
+                                <!--                                    <span class="input-group-text border-0" id="basic-addon3">Search</span>-->
+                                <!--                                    <input-->
+                                <!--                                            type="text"-->
+                                <!--                                            class="form-control rounded"-->
+                                <!--                                            id="basic-url3"-->
+                                <!--                                            aria-describedby="basic-addon3"-->
+                                <!--                                    />-->
+                                <!--                                </div>-->
+                                <div class="d-flex justify-content-center flex-wrap mb-3" id="newAppList">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNew">
+                        <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#collapseNew"
+                                aria-expanded="true"
+                                aria-controls="collapseNew"
+                        >
+                            Create New
+                        </button>
+                    </h2>
+                    <div id="collapseNew" class="accordion-collapse collapse" aria-labelledby="headingNew" data-mdb-parent="#newAppAccordian">
+                        <div class="accordion-body">
+                            <div class="modal-body">
+
+                                <div class="form-group mb-2">
+                                    <label>App Name</label>
+                                    <input type="url" id="newSiteTitle" class="form-control rounded" placeholder="Title" aria-label="Website" aria-describedby="search-addon" />
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label>URL</label>
+                                    <input type="url" id="newSiteUrl" class="form-control rounded" placeholder="http(s)://website.com" aria-label="Website" aria-describedby="search-addon" />
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label>Image Url</label>
+                                    <input type="url" id="newSiteImageUrl" class="form-control rounded" placeholder="http://google.com/image/example.png" aria-label="image url" aria-describedby="search-addon" />
+                                </div>
+                                <input id="newSiteType" type="hidden">
+                                <div class="imageLogoPlaceholder">
+                                    <canvas id="myCanvas" style="display: block; display: none;margin: auto;"></canvas>
+                                    <img id="imageLogoExample" style="display: block; display: none; width: 100px; height: 100px;margin: auto;">
+                                </div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block mt-3" onclick="saveCustom($('#newSiteTitle').val(), $('#newSiteUrl').val(), $('#newSiteType').val(), $('#newSiteImageUrl').val())">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SETTINGS MODEL -->
+<div class="modal fade bd-example-modal-lg" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Settings</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="profile-image" style="margin: auto;display: block;height: 100px;width: 100px;position: relative;">
+                        <img src="/assets/images/largeicon.png" class="rounded-circle mb-3 userProfileImageSrc" style="width: 100px; height: 100px;margin: auto;display: block;" alt="Avatar" />
+                        <!--                        <i class="fa-solid fa-camera" onclick="$('#uploadFileImage').trigger('click');" style="position: absolute;bottom: 0;right: 0;font-size: 25px;background: white;padding: 5px;border-radius: 25px;color: #3b71ca;border: 1px solid black;"></i>-->
+                        <input id="uploadFileImage" type="file" onchange="saveBaseUrl()" style="display: none">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body" style="background: #f2f2f2">
+                    <h5 style="color: black;font-weight: bold;text-align: center;">Your SimFlix ID</h5>
+                    <div class="form-group mb-2">
+                        <div class="ui-textinput ui-corner-all ui-shadow-inset ui-textinput-text ui-body-inherit">
+                            <div class="ui-textinput ui-corner-all ui-shadow-inset ui-textinput-text ui-body-inherit currentAppIdCode">
+                                <input value="" type="text" class="form-control rounded appId" placeholder="Code" aria-label="Code" style="    width: 210px;margin: auto;text-align: center;background: transparent;background: #54b4d3;border: none;font-size: 22px;font-weight: bold;border-radius: 25px !important;letter-spacing: 3px;color: white;box-shadow: 0 4px 9px -4px #54b4d3;margin-top: 16px;" readonly="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3" id="importInput" style="display: none; width: 250px; margin: auto;text-align: center;">
+                        <input
+                                id="importCodeId"
+                                type="text"
+                                class="form-control"
+                                placeholder="Code"
+                                aria-label="Code"
+                                aria-describedby="button-addon2"
+                        />
+                        <button class="btn btn-outline-Success" onclick="importAppList($('#importCodeId').val())" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                            Go
+                        </button>
+                    </div>
+
+                    <div style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center;padding-top:15px">
+                        <button id="importCode" type="button" class="btn btn-primary btn-rounded" style="margin-right: 12px;">import</button>
+                        <button id="cancelImport" type="button" class="btn btn-warning btn-rounded" style="margin-right: 12px; display: none;">cancel</button>
+                        <!--                        <button id="shareCode" type="button" class="btn btn-success btn-rounded">Share</button>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#collapseOne"
+                                aria-expanded="true"
+                                aria-controls="collapseOne"
+                        >
+                            Settings
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-mdb-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-warning"><a href="https://github.com/noremacsim/noremacsim.github.io/issues">Report an issue</a></li>
+                                <li class="list-group-item list-group-item-danger"><a href="#reset" onclick="resetData()">Reset Local User Data</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<footer class="footer">
+    <a href="#feedback" onclick="$('#feedBackModal').modal('show')" style="margin-left: 10px;color: grey;"><span>Feedback</span></a>
+    <a href="https://github.com/noremacsim/noremacsim.github.io/issues" style="margin-left: 10px;color: grey;"><span>Report Issue</span></a>
+    <a href="https://github.com/noremacsim" style="margin-left: 10px;color: grey;"><span>Github</span></a>
+    <a href="https://patreon.com/SimFlix" style="margin-left: 10px;color: grey;">Donate</a>
+</footer>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
+<script src="/assets/js/apps.js"></script>
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/layoutShare.js"></script>
 </body>
 </html>
