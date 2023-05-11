@@ -313,6 +313,23 @@ $('#color').on('change tap keyup keydown',function() {
     updateBackground($('#color').val());
 });
 
+function shareSite()
+{
+    if (navigator.share) {
+        navigator.share({
+            title: "SimFlix Bookmark App Manger for Cars, Tv's and more",
+            text: 'Hey, I have organised my own SimFlix Space Check it out!',
+            url: `https://noremacsim.github.io`,
+        })
+            .then(data => {
+                console.log('done');
+            })
+            .catch((error) => console.log('Error sharing', error));
+    } else {
+        console.log('Share not supported on this browser, do it the old way.');
+    }
+}
+
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
