@@ -17,6 +17,8 @@ async function startApp() {
         appId = window.appId;
     }
 
+    $('#yourcode').html(`Your Code: ${appId}`);
+
     await delay(1000);
 
     await getLayoutShare(appId).then(async data => {
